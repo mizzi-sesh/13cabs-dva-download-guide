@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sticky_header {
+  position:sticky;
+  top:0;
+
+}
+
+:root { 
+  color-scheme: light;
+  box-sizing: border-box;
+  --ds-gray-100:hsla(0,0%,10%,1);
+  --ds-gray-200:hsla(0,0%,12%,1);
+  --ds-gray-300:hsla(0,0%,16%,1);
+  --ds-gray-500:hsla(0,0%,50%,1);
+  --ds-blue-700:#f97316;
+  --ds-gray-900:hsla(0,0%,63%,1);
+  --ds-gray-1000:hsla(0,0%,93%,1);
+}
+
+:root[dark-theme='dark'] {
+  color-scheme: dark;
+}
+
+.sticky {
+  position:sticky;
+}
+
+.geist_stack {
+  display: flex;
+  flex-direction: var(--stack-direction, row);
+  align-items: var(--stack-align, center);
+  justify-content: var(--stack-justify, flex-start);
+  flex: var(--stack-flex, initial);
+  gap: var(--stack-gap, 4);
+  padding: 20px;
+}
+
+  .styled-scrollbar{
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+    scrollbar-color: var(--ds-gray-1000);
+    scroll-behavior: smooth;
+  }
+
+
+
+.break-words {
+  overflow-wrap: break-word;
+}
+
+.prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  color: var(--tw-prose-headings);
+  font-size:2.25em;
+  margin-top: 0;
+  margin-bottom: .8888889em;
+  line-height: 1.1111111;
+}
+
+h1{ 
+  display: block;
+}
+
+@layer components {
+  .prose-documentation :where(h2:not(:is(h1 + h2))):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    font-size: 1.25em;
+    font-weight: bold;
+    border-top-style: solid;
+    @apply border-t dark:border-gray-400/30 border-gray-700/30;
+    padding-top: 2.5rem;
+    scroll-margin-top: 10vh;
+  }
+}
+
+.prose-documentation :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  font-weight: 600;
+  color: var(--tw-prose-headings);
+  scroll-margin-top: 10vh;
+}
+
+.prose :where(h2 + *):where([class~="not-prose"], [class~="not-prose"] *) {
+  margin-top: 0;
+}
+
+.table-auto{
+  table-layout: auto;
+}
+.w-full {
+  width: 100%;
+}
+
+h2, h3 {
+  scroll-margin-top: 50px;
+}
+
+@layer components {
+  .prose :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+    @apply border-b dark:border-gray-400/30 border-gray-700/30;
+  }
+
+  .prose :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+    @apply border-b dark:border-gray-400/30 border-gray-700/30;
+  }
+}
+
+.page-content-section {
+  margin-top: 12px;
+  top:64px;
+  height: calc(100vh - 126px);
+  position:sticky;
+  flex-shrink: 0;
+  position: -webkit-sticky;
+  transition: .16s;
+  transition-property: 'width','margin-right';
+  width: 256px;
+}
+
+.page-content-section > ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.page-content-section-fragment {
+  padding: 6px 12px 6px 0;
+  line-height: 18px;
+  color: var(--ds-gray-500);
+  font-size: 14px; 
+  transition: color .5s;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 250px;
+}
+
+.page-content-section-level2-fragment {
+  padding-left: 1rem;
+}
+
+.page-content-section-has-secondary {
+  top: 116px
+}
+
+.page-content-heading {
+  display: flex;
+  align-items: center;
+  color: var(--ds-gray-600)
+}
+
+.page-content-heading > span {
+  font-size: 14px;
+  font-weight: 600;
+  padding:13px 0;
+  
+  color: var(--ds-gray-600)
+}
+
+@layer components {
+
+  .page-content-section-active-fragment{
+    @apply text-black dark:text-gray-100;
+
+  }
+}
+
+.prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  width: 100%;
+  table-layout: auto;
+  text-align:start;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: .875em;
+  line-height: 1.7142857
+}
+
+@layer components {
+  .prose :where(thead th):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+    @apply dark:text-gray-300 text-gray-700;
+    font-weight: 600;
+    vertical-align: bottom;
+    padding-inline-end: .5714286em;
+    padding-bottom: .5714286em;
+    padding-inline-start: .5714286em;
+  }
+}
+
+
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+.prose-documentation :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+@layer components {
+  .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+    @apply hover:dark:text-white hover:text-black transition duration-300;
+    color: var(--ds-blue-700);
+    font-weight: 600;
+  }
+}
+
+.prose :where(tbody tr:last-child){
+  border-bottom: 0em;
+}
+
+.prose :where(tbody td:last-child, tfoot td:last-child):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  padding-inline-end: 0;
+}
+
+.prose :where(tbody td:first-child, tfoot td:first-child):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  padding-inline-start: 0;
+}
+
+.prose :where(tbody td, tfoot td):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  padding-top: .5714286em;
+  padding-inline-end: .5714286em;
+  padding-bottom: .5714286em;
+  padding-inline-start: .5714286em;
+}
+
+.prose :where(tbody td):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  vertical-align: baseline;
+}
+
+.prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.styled-scrollbar::-webkit-scrollbar {
+  height: .375rem;
+  width: .75rem;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: .375rem;
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent
+}
+
+@media (hover:hover) {
+  .styled-scrollbar:hover::-webkit-scrollbar-thumb{   
+    border:3px solid transparent;
+    background-color: #fff;
+    background-clip:content-box;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
