@@ -29,7 +29,7 @@ export default async function RootLayout({
                         <nav className="styled-scrollbar scroll-smooth flex h-[calc(100vh-200px)] flex-col overflow-y-scroll pb-4 pr-2 dark:text-white ">
                             <div className="absolute top-0 left-0 z-10 w-full h-3 opacity-0" aria-hidden="true"></div>
                             <div className="absolute bottom-0 left-0 z-10 w-full h-3 opacity-0" aria-hidden="true"></div>
-                            <Chapter name="ADI (User)" link="/Docs/User/ADI">
+                            {/* <Chapter name="ADI (User)" link="/Docs/User/ADI">
                                 <ChapterSection name="Requirements" link="/Docs/User/Requirements"/>
                                 <ChapterSection name="Installation" link="/Docs/User/Installation"/>
                                 <ChapterSection name="Starting Application" link="/Docs/User/Setup"/>
@@ -38,10 +38,9 @@ export default async function RootLayout({
                                 <ChapterSection name="Troubleshooting" link="/Docs/User/Troubleshooting"/>
                                 <ChapterSection name="Known Issues" link="/Docs/User/KnownIssues"/>
                                 <ChapterSection name="Frequently Asked Questions" link="/Docs/User/FAQ"/>
-                            </Chapter>
+                            </Chapter> */}
 
                             <Chapter name="ADI (Developer)" link="/Docs/Dev/ADI">
-                                <ChapterSection name="About the ADI Project" link="/Docs/Dev/AboutADI"/>
                                 <ChapterSection name="Getting Started with Development" link="/Docs/Dev/GettingStarted">
                                     <SectionPageLink name="Environment Variables" link="/Docs/Dev/GettingStarted/EnvironmentVariables"/>
                                     <SectionPageLink name="Room for Development" link="/Docs/Dev/GettingStarted/FutureDevelopment"/>
@@ -98,7 +97,7 @@ export default async function RootLayout({
 
 
 
-                            <Chapter name="Daily DVA Download" link="/FAQ">
+                            {/* <Chapter name="Daily DVA Download" link="/FAQ">
                                 <ChapterSection name="Download File Process" link="/Docs/DownloadFileProcess"/>
                                 <ChapterSection name="Templates and Tools" link="/Docs/Tools"/>
                                 <ChapterSection name="Schedules and Times" link="/Docs/Schedules"/>
@@ -112,7 +111,7 @@ export default async function RootLayout({
                             </Chapter>
                             <Chapter name="DVA Excel Automation Script" link="/FAQ">
                                 <ChapterSection name="Section1" link="/Docs"/>
-                            </Chapter>
+                            </Chapter> */}
                         </nav>
                     </div>
                 </div> 

@@ -12,7 +12,6 @@ export default function Page() {
                 <CSFragment content="Features" link="features"/>
 
                 <CSFragment content="Tools Used" link="tools-used"/> 
-                <CSFragment content="Extra" link="extra-heading"/> 
             </PageContents>
             <article className="mt-4 w-full min-w-0 max-w-6x1 px-1 md:px-6 min-height-[calc(-103px + 100vh)]">
                 <div className="-mt-4 mb-7 md:mb-10 md:mt-2">
@@ -89,47 +88,59 @@ export default function Page() {
                         </tbody>
                         </table>
                         <h2 id="tools-used">{`Tools Used`}</h2>
-                        <p>{`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`}</p>
-
-                        <p>{`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`}</p>
-                        <h2 id="extra-heading">{`EXTRA HEADING!`}</h2>
-                        <p>{`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`}</p>
-
-                        <p>{`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`}</p>
-                        {/* <CodeBlock aria-label="Hello World" filename="Wow.jsx" language="jsx">
-
-                        </CodeBlock> */}
+                        <p>{`To develop the ADI, there are a few essential and recommended tools:`}</p>
+                        <div className="pl-10 font-bold">
+                            <ul><li className="pb-2">{`• `}<Link href="https://visualstudio.microsoft.com/downloads/" target="_blank">{`Visual Studio`}</Link>
+                                    <div className="pl-8 font-medium">
+                                        {`Visual Studio 2022 or later is the recommended development platform for the ADI project as the project to it's ease in generating JSON/XML serialiszable classes for SOAP APIs.`}
+                                    </div>
+                                </li>
+                                <li className="pb-2">{`• `}<Link href="https://dotnet.microsoft.com/en-us/download/visual-studio-sdks" target="_blank">{`.NET 7+ SDK`}</Link>
+                                    <div className="pl-8 font-medium">
+                                        {`The .NET development framework is the only current distribution available for the ADI project.`}
+                                    </div>
+                                </li>
+                                <li className="pb-2">{`• `}<Link href="https://www.selenium.dev/documentation/webdriver/" target="_blank">{`Selenium ChromeDriver`}</Link>
+                                    <div className="pl-8 font-medium">
+                                        {`Selenium's distribution of ChromeDriver is the backbone of the DVA module of ADI. Headless Chromedriver instances are generated for each DVA account that the user can access upon logging in.`}
+                                    </div>
+                                </li>
+                                <li className="pb-2">{`• `}<Link href="https://github.com/mizzi-sesh/ThreadSeleniumTesting" target="_blank">{`ADI GitHub Repository`}</Link>
+                                    <div className="pl-8 font-medium">
+                                        {`The Github repository is up to date with the most recent version of the project.`}
+                                    </div>
+                                </li>
+                                <li className="pb-2">{`• `}<Link href="https://www.google.com/intl/en_au/chrome/" target="_blank">{`Google Chrome`}</Link>
+                                    <div className="pl-8 font-medium">
+                                        {`Development machines require Google Chrome installed for ChromeDriver to be able to generate Chrome instances.`}
+                                    </div>
+                                </li>
+                                <li className="pb-2">{`• `}<Link href="/Docs/Dev/GettingStarted/EnvironmentVariables">{`Environment Variables`}</Link>
+                                     <div className="pl-8 font-medium">
+                                        {`Environment variables will need to be prepared by the developer in a custom format defined further on their dedicated page if they wish to adjust variables for production. Environment variables are encrypted upon initial load.`}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2"> 
-                        <LinkCard name="Getting Started" link="/Downloads">
-                            {`Wow`}
-                        </LinkCard>
-                        <LinkCard name="Getting Started" link="/Downloads">
-                            {`Wow`}
-                        </LinkCard>
-                        <LinkCard name="Getting Started" link="/Downloads">
-                            {`Wow`}
-                        </LinkCard>
-                        <LinkCard name="Getting Started" link="/Downloads">
-                            {`Wow`}
-                        </LinkCard>
-                        <LinkCard name="Getting Started" link="/Downloads">
-                            {`Wow`}
-                        </LinkCard>
-                        <LinkCard name="Getting Started" link="/Downloads">
-                            {`Wow`}
-                        </LinkCard>
+                            <LinkCard name="Starting Development" link="/Docs/Dev/GettingStarted">
+                                {`Learn what you'll need to get started on modifying and compiling ADI.`}
+                            </LinkCard>
+                            <LinkCard name="About PRODA" link="/Docs/Dev/Fundamentals/AboutPRODA">
+                                {`Learn about the provider portal website, and how we wrap the website to allow for DVA booking submissions.`}
+                            </LinkCard>
+                            <LinkCard name="About DVA" link="/Docs/Dev/Fundamentals/AboutDVA">
+                                {`Learn about the DVA faxes and the conventions used in ADI to describe transport fields.`}
+                            </LinkCard>
+                            <LinkCard name="Selenium" link="/Docs/Dev/Selenium">
+                                {`Visit here to find out more about how ChromeDriver is used in the project.`}
+                            </LinkCard>
+                            <LinkCard name="Project Structure" link="/Docs/Dev/GettingStarted/ProjectStructure">
+                                {`Class map can be found here.`}
+                            </LinkCard>
+                            <LinkCard name="ODI Methods" link="/Docs/Dev/ODICommands">
+                                {`Learn more about how ADI sends transport bookings to and from the dispatch server.`}
+                            </LinkCard>
                         </div>
                     </div>
                 </div>
