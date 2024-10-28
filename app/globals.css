@@ -8,6 +8,10 @@
 
 }
 
+::selection{
+  background:#f97316
+}
+
 :root { 
   color-scheme: light;
   box-sizing: border-box;

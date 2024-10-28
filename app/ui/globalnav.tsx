@@ -6,8 +6,6 @@ import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from '@heroicons/react/24/out
 import Logo from '../../public/branding/13cabs_logo_only__PMS-151C_.svg'
 import Image from 'next/image'
 import { saira_extra_condensed, radio_canada_bold } from "../layout";
-import { useState, useEffect } from 'react';
-//import ThemeButton from './themebutton';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import { clsx } from 'clsx'

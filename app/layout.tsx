@@ -1,6 +1,6 @@
 import type { UserNavigation } from '../my-types'
 import  GlobalNavigation from './ui/globalnav'
-import { Radio_Canada, Saira_Extra_Condensed } from "next/font/google";
+import { Fira_Code, Radio_Canada, Saira_Extra_Condensed } from "next/font/google";
 import "./globals.css";
 import {getTheme} from './getTheme'
 import { Suspense, useState } from 'react';
@@ -10,6 +10,9 @@ import { Suspense, useState } from 'react';
 export const radio_canada = Radio_Canada({ subsets: ["latin"], weight: "300" });
 export const radio_canada_bold = Radio_Canada({ subsets: ["latin"], weight: "400" });
 export const saira_extra_condensed = Saira_Extra_Condensed({subsets: ["latin"], weight: "400"});
+
+export const fira_code = Fira_Code({subsets: ["latin"], weight: "300"});
+
 
 
 // export const metadata: Metadata = {
