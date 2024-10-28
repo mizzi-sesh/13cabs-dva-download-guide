@@ -17,7 +17,7 @@ function classNames(...classes: any) {
   }
 
 const UnoptimisedLogo = (props: any) => {
-    return <Image {...props} unoptimized />
+    return <Image {...props} unoptimized className="" alt="PFP"/>
 }
 
 const SetTheme = dynamic(() => import('../ui/themebutton'), {
@@ -84,7 +84,8 @@ export default function GlobalNavigation(props: {userNavigation: UserNavigation[
                     <MenuButton className="relative flex max-w-xs items-center rounded-full text:sm ">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <img alt="" src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=500" className="h-10 w-10 rounded-full p-0.5" />
+
+                      <div className="h-10 w-10 rounded-full p-0.5" />
                     </MenuButton>
                   </div>
                   <MenuItems
@@ -138,7 +139,7 @@ export default function GlobalNavigation(props: {userNavigation: UserNavigation[
             <div className="border-t border-gray-400 container dark:border-zinc-700 pb-3 pt-4">
               <div className="flex px-5 items-center">
                 <div className="flex-shrink-0 pr-3 ">
-                  <img alt="13cabs" src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=500" className="h-10 w-10 rounded-full" />
+                  <div className="h-10 w-10 rounded-full" />
                 </div>
                 <div className="mt-3 flex-1">
                   <div className="text-base font-medium leading-none text-black dark:text-white">Jane Doe</div>

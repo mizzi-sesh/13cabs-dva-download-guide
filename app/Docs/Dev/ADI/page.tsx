@@ -7,38 +7,6 @@ import { atelierCaveLight } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
 import { atelierHeathDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-export function CustomSynxtaxHighligher({code, language}: {code:string, language: string}){
-
-    const codeThemeDark = atelierHeathDark
-    const codeThemeLight = atelierCaveLight
-
-    const defaultClassInfo = "rounded-md border border-gray-600"
-    let defaultLineStyle = {['opacity']: 0.5, ['minWidth']: 0}
-    let str = 'hidden dark:block'   
-
-    return(
-        <>
-            <div className="hidden dark:block">
-                <SyntaxHighlighter 
-                className={defaultClassInfo}
-                language={language}
-                style={codeThemeDark}
-                lineNumberStyle={defaultLineStyle}
-                showLineNumbers
-                children={code} />
-                </div>
-                <div className="block dark:hidden">
-                <SyntaxHighlighter 
-                className={defaultClassInfo}
-                language={language}
-                style={codeThemeLight}
-                lineNumberStyle={defaultLineStyle}
-                showLineNumbers
-                children={code} />
-            </div>
-        </>
-    )
-}
 
 export default function Page() {
 

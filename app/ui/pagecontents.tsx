@@ -12,15 +12,14 @@ interface ContentListProps {
 }
 
 
-export default async function PageContents({children, id}: {children: React.ReactNode, id: string}) {
+export default function PageContents({children, id}: {children: React.ReactNode, id: string}) {
     
+    const coHeadingElements = useRef<HTMLElement | null>(null);
 
      if (typeof document !== "undefined" && typeof window !== "undefined") {
 
         let viewHeight = window.visualViewport?.height
         let viewWidth = window.visualViewport?.width
-
-        const coHeadingElements = useRef<HTMLElement | null>(null);
 
         if (viewHeight && viewWidth){
 
