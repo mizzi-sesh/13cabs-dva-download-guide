@@ -5,16 +5,16 @@ import { useEffect, useState } from "react";
 
 
   const SetTheme = () => {
-    const [theme, setTheme] = useState(global.window?.__theme || 'light');
+    const [theme, setTheme] = useState((global as any).window?.__theme || 'light');
   
     const isDark = theme === 'dark';
   
     const toggleTheme = () => {
-      global.window?.__setPreferredTheme(theme === 'light' ? 'dark': 'light');
+      (global as any).window?.__setPreferredTheme(theme === 'light' ? 'dark': 'light');
     };
   
     useEffect(() => {
-      global.window.__onThemeChange = setTheme;
+      (global as any).window.__onThemeChange = setTheme;
     }, []);
   
     
