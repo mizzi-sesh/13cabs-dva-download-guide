@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 
-export function Page() {
+export default function Page() {
 
     let codeString = 
     `const userNavigation: UserNavigation[] = [
@@ -19,7 +19,7 @@ export function Page() {
 
     return( 
         <>
-            <h1 id="downloads" className="break-words">Downloads</h1>
+            <h1 id="downloads" className="break-words">{`About ADI`}</h1>
             <CustomSynxtaxHighligher language="javascript" code={codeString} /> 
             <p>Welcome to the Dva documentation!</p>
             <h2 id="what-is-the-download">What is the DVA Download?</h2>
@@ -48,7 +48,7 @@ export function Page() {
                         </Link>
                     </td>
                     <td>
-                        This is another cell that I'm using for testing regarding my tables
+                        {`This is another cell that I'm using for testing regarding my tables`}
                     </td>
                     </tr>
                 </tbody>
