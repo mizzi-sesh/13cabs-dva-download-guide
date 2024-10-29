@@ -14,7 +14,7 @@ export function CustomSynxtaxHighligher({code, language}: {code:string, language
 
     return(
         <>
-            <div className="hidden dark:block">
+            <span className="hidden dark:block">
                 <SyntaxHighlighter 
                 className={defaultClassInfo}
                 language={language}
@@ -22,8 +22,8 @@ export function CustomSynxtaxHighligher({code, language}: {code:string, language
                 lineNumberStyle={defaultLineStyle}
                 showLineNumbers
                 >{code}</SyntaxHighlighter>
-                </div>
-                <div className="block dark:hidden">
+                </span>
+                <span className="block dark:hidden">
                 <SyntaxHighlighter 
                 className={defaultClassInfo}
                 language={language}
@@ -31,7 +31,7 @@ export function CustomSynxtaxHighligher({code, language}: {code:string, language
                 lineNumberStyle={defaultLineStyle}
                 showLineNumbers
                 >{code}</SyntaxHighlighter>
-            </div>
+            </span>
         </>
     )
 }

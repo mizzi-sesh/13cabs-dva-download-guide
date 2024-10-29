@@ -41,10 +41,10 @@ export default async function RootLayout({
                             </Chapter> */}
 
                             <Chapter name="ADI (Developer)" link="/Docs/Dev/ADI">
-                                <ChapterSection name="Getting Started with Development" link="/Docs/Dev/GettingStarted">
+                                    <ChapterSection name="Getting Started with Development" link="/Docs/Dev/GettingStarted">
                                     <SectionPageLink name="Environment Variables" link="/Docs/Dev/GettingStarted/EnvironmentVariables"/>
-                            <SectionPageLink name="Room for Development" link="/Docs/Dev/GettingStarted/FutureDevelopment"/>
-                            <SectionPageLink name="Installation" link="/Docs/Dev/GettingStarted/Installation"/>
+                                    {/* <SectionPageLink name="Room for Development" link="/Docs/Dev/GettingStarted/FutureDevelopment"/> */}
+                                    {/* <SectionPageLink name="Installation" link="/Docs/Dev/GettingStarted/Installation"/> */}
                                     <SectionPageLink name="Project Structure" link="/Docs/Dev/GettingStarted/ProjectStructure"/>
                                 </ChapterSection>
 
@@ -52,15 +52,15 @@ export default async function RootLayout({
                                 <ChapterSection name="Fundamental Classes" link="/Docs/Dev/Fundamentals">
                                     <SectionPageLink name="About DVA " link="/Docs/Dev/Fundamentals/AboutDVA"/>
                                     <SectionPageLink name="About PRODA" link="/Docs/Dev/Fundamentals/AboutPRODA"/>
-                            <SectionPageLink name="ADI Base" link="/Docs/Dev/Fundamentals/ADIBase"/>
+                                    {/* <SectionPageLink name="ADI Base" link="/Docs/Dev/Fundamentals/ADIBase"/> */}
                                     <SectionPageLink name="BookingRedux" link="/Docs/Dev/Fundamentals/Booking"/>
                                     <SectionPageLink name="Fleets" link="/Docs/Dev/Fundamentals/Fleets"/>
                                     <SectionPageLink name="Logging" link="/Docs/Dev/Fundamentals/Logging"/>
-                            <SectionPageLink name="SOAP Requests" link="/Docs/Dev/Fundamentals/SOAPRequests"/>
+                                    {/* <SectionPageLink name="SOAP Requests" link="/Docs/Dev/Fundamentals/SOAPRequests"/> */}
                                     <SectionPageLink name="SQL Parsing Objects" link="/Docs/Dev/Fundamentals/SQLParsingObjects"/>
-                            <SectionPageLink name="StreetFindingStrategy (Deprecated)" link="/Docs/Dev/Fundamentals/StreetFindingStrategy"/>
-                            <SectionPageLink name="StreetSuffixes (Deprecated)" link="/Docs/Dev/Fundamentals/StreetSuffixes"/>
-                                    <SectionPageLink name="TimeoutUtility" link="/Docs/Dev/Fundamentals/TimeoutUtility"/>
+                                    {/* <SectionPageLink name="StreetFindingStrategy (Deprecated)" link="/Docs/Dev/Fundamentals/StreetFindingStrategy"/> */}
+                                    {/* <SectionPageLink name="StreetSuffixes (Deprecated)" link="/Docs/Dev/Fundamentals/StreetSuffixes"/> */}
+                                    {/* <SectionPageLink name="TimeoutUtility" link="/Docs/Dev/Fundamentals/TimeoutUtility"/> */}
                                     <SectionPageLink name="Utility Methods" link="/Docs/Dev/Fundamentals/UtilityMethods"/>
                                 </ChapterSection>
 
@@ -68,7 +68,7 @@ export default async function RootLayout({
                                     <SectionPageLink name="KernelUtilities" link="/Docs/Dev/Selenium/KernelUtilities"/>
                                     <SectionPageLink name="ChromeDriverGenerator" link="/Docs/Dev/Selenium/ChromeDriverGenerator"/>
                                     <SectionPageLink name="DVABooking" link="/Docs/Dev/Selenium/DVABooking"/>
-                            <SectionPageLink name="EmailServicer (Deprecated)" link="/Docs/Dev/Selenium/EmailServicer"/>
+                                    {/* <SectionPageLink name="EmailServicer (Deprecated)" link="/Docs/Dev/Selenium/EmailServicer"/> */}
                                     <SectionPageLink name="PRODAManager" link="/Docs/Dev/Selenium/PRODAManager"/>
                                     <SectionPageLink name="PRODA Menu Management" link="/Docs/Dev/Selenium/PRODAMenuManagement"/>
                                 </ChapterSection>
@@ -88,7 +88,7 @@ export default async function RootLayout({
                                         <SectionPageLink name="BookingHeader" link="/Docs/Dev/ODICommands/CreateBookingController/BookingHeader"/>
                                         <SectionPageLink name="BookingLocations" link="/Docs/Dev/ODICommands/CreateBookingController/BookingLocations"/>
                                     </ChapterSection>
-                                    <SectionPageLink name="StreetsBySuburb (Deprecated)" link="/Docs/Dev/ODICommands/StreetsBySuburb"/>
+                                    {/* <SectionPageLink name="StreetsBySuburb (Deprecated)" link="/Docs/Dev/ODICommands/StreetsBySuburb"/> */}
                                     <SectionPageLink name="SuburbsByName" link="/Docs/Dev/ODICommands/SuburbsByName"/>                                    
                                 </ChapterSection>
 
