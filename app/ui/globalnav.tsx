@@ -48,7 +48,7 @@ export default function GlobalNavigation(){
                 </div>
                 {/* <div className={`text-3xl flex pl-5 ${saira_extra_condensed.className}`}>|</div> */}
                 <div className={`text-2xl pl-5 ${saira_extra_condensed.className} border-l dark:border-l-gray-800 border-l-gray-200 border-offset-2 m-5 hidden md:block`}>
-                  TSOL Automation Docs
+                  Automatic Dispatch Interface - Documentation
                 </div>
               <div className="hidden md:hidden lg:block p-2">
                 <div className="mt-1 flex items-baseline  space-x-4">

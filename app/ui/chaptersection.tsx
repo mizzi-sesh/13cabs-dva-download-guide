@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import path from "path";
 import React, { Children, Component, CSSProperties, ReactNode, useRef, useState } from "react";
 
 
@@ -10,6 +11,7 @@ export default function ChapterSection(props: { link: string, name: string, chil
 
     const pathname = usePathname();
     const [dataCollapsed , toggleCollapse] = useState(() => {        
+
         if(pathname.includes(props.link)){
             console.log (pathname, props.link);
            return false;
@@ -36,9 +38,9 @@ export default function ChapterSection(props: { link: string, name: string, chil
       }
 
       function toggleChapterOrientation(){
-        if(pathname === props.link){
+        //if(pathname === props.link){
             toggleCollapse(!dataCollapsed);
-        }
+        //}
 
       }
 
