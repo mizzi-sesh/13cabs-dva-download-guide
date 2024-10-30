@@ -67,7 +67,6 @@ export default async function RootLayout({
                                   <ChapterSection name="Known Issues" link="/Docs/User/KnownIssues"/>
                                   <ChapterSection name="Frequently Asked Questions" link="/Docs/User/FAQ"/>
                               </Chapter> */}
-
                               <Chapter name="ADI (Developer)" link="/">
                                       <ChapterSection name="Getting Started with Development" link="/Docs/Dev/GettingStarted">
                                       <SectionPageLink name="Environment Variables" link="/Docs/Dev/GettingStarted/EnvironmentVariables"/>
