@@ -77,7 +77,7 @@ export function CSFragment(prop: ContentListProps){
 
     return(
         <li className={`page-content-section-fragment  ${level2Class}`}>
-            <Link className="transition ease-in-out duration-300 hover:text-gray-100" href={`#${prop.link}`}>{prop.content}</Link>
+            <Link className="transition ease-in-out duration-300 scroll-smooth hover:text-gray-100" href={`#${prop.link}`}>{prop.content}</Link>
         </li>
     )
 }
