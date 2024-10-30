@@ -23,13 +23,13 @@ const SetTheme = dynamic(() => import('../ui/themebutton'), {
 });
 
 let navigation: Navigation[] = [
-  {name: 'Home', href: '/', current: true},
-  {name: 'FAQ', href: '/FAQ', current: false},
-  {name: 'Docs', href: '/Docs', current: false},
-  {name: 'About', href: '/About', current: false},
+  // {name: 'Home', href: '/', current: true},
+  // {name: 'FAQ', href: '/FAQ', current: false},
+  // {name: 'Docs', href: '/Docs', current: false},
+  // {name: 'About', href: '/About', current: false},
 ]
 
-export default function GlobalNavigation(props: {userNavigation: UserNavigation[]}){
+export default function GlobalNavigation(){
   
   const pathname = usePathname();
 
@@ -77,7 +77,7 @@ export default function GlobalNavigation(props: {userNavigation: UserNavigation[
             <div className="flex flex-1 justify-end">
               <div className="flex items-center">       
                 <SetTheme/>
-                <Menu as="div" className="flex flex-row relative m1-3 hidden lg:block">
+                {/* <Menu as="div" className="flex flex-row relative m1-3 hidden lg:block">
                   <div className="hover:outline-none transition ease-in-out duration-500 hover:ring-1 hover:ring-gray-400 hover:ring-offset-gray-400  dark:hover:ring-offset-white rounded-full hover:ring-offset-1 dark:hover:ring-white dark:hover:ring-offset-gray-800 ">
                     <MenuButton className="relative flex max-w-xs items-center rounded-full text:sm ">
                       <span className="absolute -inset-1.5" />
@@ -100,20 +100,20 @@ export default function GlobalNavigation(props: {userNavigation: UserNavigation[
                         </MenuItem>
                       ))}
                     </MenuItems>
-                </Menu>
+                </Menu> */}
               </div>
             </div>
-              <div className="-mr-2 flex lg:hidden">
+              {/* <div className="-mr-2 flex lg:hidden">
                 <DisclosureButton className="group relative inline-flex text-gray-400 items-center hover:ring-2 hover:ring-black justify-center rounded-md dark:bg-zinc-950 p-2p dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white focus:outline-none focus:ring-2 dark:focus:ring-white focus:ring-offset-2 dark:focus:ring-offset-gray-800">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
                   <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
                 </DisclosureButton>
-              </div>
+              </div> */}
             </div>
           </div>
-          <DisclosurePanel className="lg:hidden">
+          {/* <DisclosurePanel className="lg:hidden">
             <div className="space-y-1 space-x-1 flex justify-evenly px-3 pb-3 columns-2 pt-2 sm:px-3 ">
               {navigation.map((item)=>(
                 <Link
@@ -160,7 +160,7 @@ export default function GlobalNavigation(props: {userNavigation: UserNavigation[
                 ))}
               </div>
             </div>
-          </DisclosurePanel>
+          </DisclosurePanel> */}
           </Disclosure> 
     )
 }
