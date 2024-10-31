@@ -4,8 +4,6 @@ import Link from "next/link";
 // `}<InlineCodeSnip>{` `}</InlineCodeSnip>{` 
 export default function Page () {
 
- 
-
    return  (
         <>
             <PageContents id="page-contents">
