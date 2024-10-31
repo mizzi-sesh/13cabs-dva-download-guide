@@ -7,6 +7,7 @@ import { Suspense, useState } from 'react';
 import Chapter from './ui/chapter';
 import ChapterSection from './ui/chaptersection';
 import SectionPageLink from './ui/sectionpagelink';
+import Link from 'next/link';
 
 
 
@@ -156,7 +157,9 @@ export default async function RootLayout({
               {/* </article> */}
           </div>
           </div>
+          <div className='relative pb-6 text-center text-gray-700 text-sm hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-500'><Link target="blank_" href="https://github.com/mizzi-sesh">{`Developed by Minerva Mizzi`}</Link>{``}</div>  
         </Suspense>
+        
         </body>
       </html>
   );
