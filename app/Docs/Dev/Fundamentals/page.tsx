@@ -30,31 +30,31 @@ export default function Page () {
 }`;
 
     const sqlMessageSnip_1 = `"SELECT TOP 100 percent [SuburbId]" +
-     ",[Name]" +
-     ",[AddressDbID]" +
-     ",[StateID]" +
-     ",[PlaceID]" +
-     ",[Longitude]" +
-     ",[Latitude]" +
-     ",[Postcode]" +
-     ",[LocalSuburb].[DispatchFleetid]" +
-    ",[LocalSuburb].[LocalSuburbID] " +
-    ",[Suburb].[IsActive]" +
-    " FROM [Australia].[dbo].[Suburb] RIGHT JOIN" +
-    "[Australia].[dbo].[LocalSuburb] ON Suburb.SuburbID" +
-    " = LocalSuburb.MasterSuburbID" +
-    " WHERE (Postcode=" + postCode.ToString() +
-    " OR Name LIKE '%" + suburbName + "%')" +
-    " AND NOT (Postcode IS NULL OR Postcode = '')" +
-    " AND [Suburb].[IsActive]=1" +
-    " AND NOT [LocalSuburb].[DispatchFleetId]=0" +
-    " AND (AddressDbID=1 OR AddressDbID=2 OR AddressDbID=3" +
-    "   OR AddressDbID=4 OR AddressDbID=5 OR AddressDbID=7" +
-    "   OR AddressDbID=8 OR AddressDbID=1007 OR AddressDbID=1009" +
-    "   OR AddressDbID=1010 OR AddressDbID=1011 + OR AddressDbID=1012" +
-    "   OR AddressDbID=1014 OR AddressDbID=9 OR AddressDbID=10" +
-    "   OR AddressDbId=12 OR AddressDbID=13 OR AddressDbId=1004)" +     
-    " ORDER BY Name";`;
+",[Name]" +
+",[AddressDbID]" +
+",[StateID]" +
+",[PlaceID]" +
+",[Longitude]" +
+",[Latitude]" +
+",[Postcode]" +
+",[LocalSuburb].[DispatchFleetid]" +
+",[LocalSuburb].[LocalSuburbID] " +
+",[Suburb].[IsActive]" +
+" FROM [Australia].[dbo].[Suburb] RIGHT JOIN" +
+"[Australia].[dbo].[LocalSuburb] ON Suburb.SuburbID" +
+" = LocalSuburb.MasterSuburbID" +
+" WHERE (Postcode=" + postCode.ToString() +
+" OR Name LIKE '%" + suburbName + "%')" +
+" AND NOT (Postcode IS NULL OR Postcode = '')" +
+" AND [Suburb].[IsActive]=1" +
+" AND NOT [LocalSuburb].[DispatchFleetId]=0" +
+" AND (AddressDbID=1 OR AddressDbID=2 OR AddressDbID=3" +
+"   OR AddressDbID=4 OR AddressDbID=5 OR AddressDbID=7" +
+"   OR AddressDbID=8 OR AddressDbID=1007 OR AddressDbID=1009" +
+"   OR AddressDbID=1010 OR AddressDbID=1011 + OR AddressDbID=1012" +
+"   OR AddressDbID=1014 OR AddressDbID=9 OR AddressDbID=10" +
+"   OR AddressDbId=12 OR AddressDbID=13 OR AddressDbId=1004)" +     
+" ORDER BY Name";`;
 
    return  (
         <>
@@ -64,9 +64,6 @@ export default function Page () {
                 <CSFragment content="SOAPRequest<T>" link="soap-request"/>
                 <CSFragment content="A2bSQLServerQueryBuilder" link="a2b-sql"/>
                 <CSFragment content="BookingRedux" link="booking-redux"/>
-                <CSFragment content="BookingInfo" link="booking-info"/>
-                <CSFragment content="TravelTimeEstimation" link="travel-time-estimation"/>
-                <CSFragment content="TravelPoint" link="travel-point"/>
                 <CSFragment content="Fleets" link="fleets"/>
                 <CSFragment content="Back to top" link="/"/>
             </PageContents>
@@ -116,28 +113,25 @@ export default function Page () {
                         </ul>
                         <p className="ml-4">{`Once a SOAP request has been defined, and declared with an appropriate action, it will have it's defining object i.e. `}<InlineCodeSnip>{`Auth_Request`}</InlineCodeSnip>{` serialized into and XML object by calling `}<InlineCodeSnip>{`RequestParams()`}</InlineCodeSnip>{`. The Request parameters method is also virtual, so that each SOAP action type can prepare it's parameters within the serializable object before being converted into an XML message. Once prepared, simply call `}<InlineCodeSnip>{`SendRequest()`}</InlineCodeSnip>{` until a response is received.`}</p>
                         <p className="ml-4">
-                            {`More information about menu functions can be found on the `}<Link href="/Docs/Dev/ODICommands">{`ODI commands page`}</Link>{`.`}
+                            {`More information about SOAP Requests can be found on the `}<Link href="/Docs/Dev/ODICommands">{`ODI commands page`}</Link>{`.`}
                         </p>
                         <h2 id="a2b-sql" className={`${fira_code.className}`}>{`A2bSQLServerQueryBuilder`}</h2>
                         <p className="ml-4">{`The `}<InlineCodeSnip>{`A2bSQLServerQueryBuilder`}</InlineCodeSnip>{` class is used to construct an SQL query which can be sent to the Location SQL server in order to find the appropriate taxi fleet based on a combination of pickup postcode and suburb name. It defines the connection string to connect with the server, and then prompts the server with a SELECT sql request with the `}<InlineCodeSnip>{``}</InlineCodeSnip>{` which returns a pre-defined message that specifies a postcode and suburb name which is provided in the method parameters.`}</p>
                         <p className="ml-4">{`The SQL message submitted for the request:`}</p>
                         <InlineCodeSnip><Link href="/Docs/Dev/Fundamentals/SQLParsingObjects">{`BookingRedux.cs`}</Link></InlineCodeSnip>
                         <CustomSynxtaxHighligher language="mysql" code={sqlMessageSnip_1}/>
-                        <p className="ml-4">{``}</p>
+                        <p className="ml-4">{`This SQL message is defined to retrieve information regarding a given suburb and postcode across all of the available address databases. After this, the results are parsed into a list of `}<InlineCodeSnip>{`SQLFleetFinderObject`}</InlineCodeSnip>{`s. Lastly, a strategy pattern is used to narrow the list down into a single suburb result. If more than one result is found, then the choices are presented to the user agent before continuing with the booking process.`}</p>
                         <h2 id="booking-redux" className={`${fira_code.className}`}>{`BookingRedux`}</h2>
-                        <p className="ml-4">{``}</p>
-                        
-                        <h2 id="booking-info" className={`${fira_code.className}`}>{`BookingInfo`}</h2>
-                        <p className="ml-4">{``}</p>
-
-                        <h2 id="travel-time-estimation" className={`${fira_code.className}`}>{`TravelTimeEstimation`}</h2>
-                        <p className="ml-4">{``}</p>
-
-                        <h2 id="travel-point" className={`${fira_code.className}`}>{`TravelPoint`}</h2>
-                        <p className="ml-4">{``}</p>
-
+                        <p className="ml-4">{`The booking redux class defines the booking object used in the ADI projects to store total information about bookings which can be delivered in SOAP messages. While there were several fields that defined the `}<InlineCodeSnip>{`BookingRedux`}</InlineCodeSnip>{` class, most of the explicit fields can be found in the `}<InlineCodeSnip>{`BookingInfo`}</InlineCodeSnip>{` class instead. Instead, the booking class connects booking information, to a `}<InlineCodeSnip>{`Fleets`}</InlineCodeSnip>{` object, whilst also presenting a simple shell for the various fields that must be stored and parsed in the `}<InlineCodeSnip>{`BookingInfo`}</InlineCodeSnip>{` class.`}</p>
+                        <p className="ml-4">{`Furthermore, the booking and booking info class are intended for abstraction, acting more as an interface for the storage and submission for bookings of different types rather than as containing all booking information.`}</p>
+                        <p className="ml-4">
+                            {`More information about the booking classes can be found on the `}<Link href="/Docs/Dev/Fundamentals/Booking">{`BookingRedux`}</Link>{` and `}<Link href="/Docs/Dev/Selenium/DVABooking">{`DVABooking`}</Link>{` pages.`}
+                        </p>
                         <h2 id="fleets" className={`${fira_code.className}`}>{`Fleets`}</h2>
-                        <p className="ml-4">{``}</p>
+                        <p className="ml-4">{`The fleets class is responsible for defining 13cabs taxi fleets across Australia. Fleets are significant for determining which taxis the booking is dispatched to, so it's important that the fleet is correct. In addition to determining the region of the booking, fleet objects also include the definition of DVA account information, and other conditions which must be considered for the fleet.`}</p>
+                        <p className="ml-4">
+                            {`More information about fleets can be found on the `}<Link href="/Docs/Dev/Fundamentals/Fleets">{`Fleets`}</Link>{` page.`}
+                        </p>
                     </div>
                     <div className="h-96">{``}</div>
                     <div className="h-96">{``}</div>
