@@ -29,6 +29,33 @@ export default function Page () {
    //...
 }`;
 
+    const sqlMessageSnip_1 = `"SELECT TOP 100 percent [SuburbId]" +
+     ",[Name]" +
+     ",[AddressDbID]" +
+     ",[StateID]" +
+     ",[PlaceID]" +
+     ",[Longitude]" +
+     ",[Latitude]" +
+     ",[Postcode]" +
+     ",[LocalSuburb].[DispatchFleetid]" +
+    ",[LocalSuburb].[LocalSuburbID] " +
+    ",[Suburb].[IsActive]" +
+    " FROM [Australia].[dbo].[Suburb] RIGHT JOIN" +
+    "[Australia].[dbo].[LocalSuburb] ON Suburb.SuburbID" +
+    " = LocalSuburb.MasterSuburbID" +
+    " WHERE (Postcode=" + postCode.ToString() +
+    " OR Name LIKE '%" + suburbName + "%')" +
+    " AND NOT (Postcode IS NULL OR Postcode = '')" +
+    " AND [Suburb].[IsActive]=1" +
+    " AND NOT [LocalSuburb].[DispatchFleetId]=0" +
+    " AND (AddressDbID=1 OR AddressDbID=2 OR AddressDbID=3" +
+    "   OR AddressDbID=4 OR AddressDbID=5 OR AddressDbID=7" +
+    "   OR AddressDbID=8 OR AddressDbID=1007 OR AddressDbID=1009" +
+    "   OR AddressDbID=1010 OR AddressDbID=1011 + OR AddressDbID=1012" +
+    "   OR AddressDbID=1014 OR AddressDbID=9 OR AddressDbID=10" +
+    "   OR AddressDbId=12 OR AddressDbID=13 OR AddressDbId=1004)" +     
+    " ORDER BY Name";`;
+
    return  (
         <>
             <PageContents id="page-contents">
@@ -67,10 +94,36 @@ export default function Page () {
                             {`More information about menu functions can be found on the `}<Link href="/Docs/Dev/MenuManagement">{`menu management page`}</Link>{`.`}
                         </p>
                         <h2 id="soap-request" className={`${fira_code.className}`}>{`SOAPRequest<T>`}</h2>
-                        <p className="ml-4">{`SOAP requests are critical to the ADI booking process as they allow the application to submit bookings to the 13cabs dispatch server. The `}<InlineCodeSnip>{`SOAPRequest`}</InlineCodeSnip>{` class functions essentially as an abstract class which defines the basic parameters and expectations of a given SOAP function. The class is intended to only be used for inheritance of explicit SOAP methods, i.e. `}<InlineCodeSnip>{`Auth_Request`}</InlineCodeSnip>{`. `}</p>
+                        <p className="ml-4">{`SOAP requests are critical to the ADI booking process as they allow the application to submit bookings to the 13cabs dispatch server. The `}<InlineCodeSnip>{`SOAPRequest`}</InlineCodeSnip>{` class functions essentially as an abstract class which defines the basic parameters and expectations of a given SOAP function. The class is intended to only be used for inheritance of explicit SOAP methods, i.e. `}<InlineCodeSnip>{`Auth_Request`}</InlineCodeSnip>{`.`}</p>
+                        <p className="ml-4">{`SOAP requests have three functional methods: `}<InlineCodeSnip>{`RequestParams()`}</InlineCodeSnip>{`, `}<InlineCodeSnip>{`SendRequest()`}</InlineCodeSnip>{` and `}<InlineCodeSnip>{`ParseResponse<U>()`}</InlineCodeSnip>{`. `}<InlineCodeSnip>{`SendRequest()`}</InlineCodeSnip>{` is the same across SOAP classes, in that it merely constructs the `}<InlineCodeSnip>{`HttpRequestMessage`}</InlineCodeSnip>{` based on whatever action and `}<InlineCodeSnip>{`message_bytes`}</InlineCodeSnip>{` have been defined for the given request.`}</p>
+                        <p className="ml-4">{`The generic argument `}<InlineCodeSnip>{`T`}</InlineCodeSnip>{` for `}<InlineCodeSnip>{`SOAPRequest`}</InlineCodeSnip>{` defines the type of SOAP request to be sent. Each SOAP function must have: `}</p>
+                        <ul className="list-disc ml-10 mb-2">
+                            <li className="pb-1">{`A request type`}</li>
+                            <li className="pb-1">{`A response type`}</li>
+                            <li className="pb-1">{`A message controller`}</li>
+                        </ul>
+                        <p className="ml-4">{`In the case of the ADI project, the SOAP actions available are specifically defined by methods found on: `}</p>
+                        <ul className="list-disc ml-10 mb-2">
+                            <li className="pb-1">
+                                <Link href="https://azsvr09.13cabs.com.au/dispatch/bookingwebservice.asmx" target="_blank"><InlineCodeSnip>{`Bookingwebservice.asmx`}</InlineCodeSnip></Link>
+                            </li>
+                            <li className="pb-1">
+                                <Link href="https://azsvr09.13cabs.com.au/dispatch/authenticationwebservice.asmx" target="_blank"><InlineCodeSnip>{`Authenticationwebservice.asmx`}</InlineCodeSnip></Link>
+                            </li>
+                            <li className="pb-1">
+                                <Link href="https://azsvr09.13cabs.com.au/dispatch/AddressWebService.asmx" target="_blank"><InlineCodeSnip>{`AddressWebService.asmx`}</InlineCodeSnip></Link>
+                            </li>
+                        </ul>
+                        <p className="ml-4">{`Once a SOAP request has been defined, and declared with an appropriate action, it will have it's defining object i.e. `}<InlineCodeSnip>{`Auth_Request`}</InlineCodeSnip>{` serialized into and XML object by calling `}<InlineCodeSnip>{`RequestParams()`}</InlineCodeSnip>{`. The Request parameters method is also virtual, so that each SOAP action type can prepare it's parameters within the serializable object before being converted into an XML message. Once prepared, simply call `}<InlineCodeSnip>{`SendRequest()`}</InlineCodeSnip>{` until a response is received.`}</p>
+                        <p className="ml-4">
+                            {`More information about menu functions can be found on the `}<Link href="/Docs/Dev/ODICommands">{`ODI commands page`}</Link>{`.`}
+                        </p>
                         <h2 id="a2b-sql" className={`${fira_code.className}`}>{`A2bSQLServerQueryBuilder`}</h2>
+                        <p className="ml-4">{`The `}<InlineCodeSnip>{`A2bSQLServerQueryBuilder`}</InlineCodeSnip>{` class is used to construct an SQL query which can be sent to the Location SQL server in order to find the appropriate taxi fleet based on a combination of pickup postcode and suburb name. It defines the connection string to connect with the server, and then prompts the server with a SELECT sql request with the `}<InlineCodeSnip>{``}</InlineCodeSnip>{` which returns a pre-defined message that specifies a postcode and suburb name which is provided in the method parameters.`}</p>
+                        <p className="ml-4">{`The SQL message submitted for the request:`}</p>
+                        <InlineCodeSnip><Link href="/Docs/Dev/Fundamentals/SQLParsingObjects">{`BookingRedux.cs`}</Link></InlineCodeSnip>
+                        <CustomSynxtaxHighligher language="mysql" code={sqlMessageSnip_1}/>
                         <p className="ml-4">{``}</p>
-
                         <h2 id="booking-redux" className={`${fira_code.className}`}>{`BookingRedux`}</h2>
                         <p className="ml-4">{``}</p>
                         
