@@ -11,7 +11,7 @@ import { CustomSynxtaxHighligher } from "@/app/ui/customsyntaxhighlighter";
 //     return <Image {...props} unoptimized className="" alt="PFP"/>
 // }
 
-export function GradientBorder({
+function GradientBorder({
     children,
   }: Readonly<{
     children: React.ReactNode;
@@ -87,15 +87,31 @@ export default function Page () {
                     <p className="">{`The menu has its functions searched for the first method which contains the users input, before invoking that method.`}</p>
 
                     <h2 id="menu-functions" className="">{`Menu Functions`}</h2>
+                    <p>{`Each menu function is defined by a few key objects: A list of strings for each command shortcut, a name, a `}<InlineCodeSnip>{`ConsoleColor`}</InlineCodeSnip>{` object. Each method has an invoke definition which runs the Function if a successful key is entered, or sets the `}<InlineCodeSnip>{`EffectOfLastOperationRef`}</InlineCodeSnip>{` field to express that the entered command did not return a function.`}</p>
+                    <p>{`If valid function is able to be discerned from the entered text, the ADI will invoke its `}<InlineCodeSnip>{`Function(object? param)`}</InlineCodeSnip>{` method. Since `}<InlineCodeSnip>{`MenuFunction`}</InlineCodeSnip>{` is an abstract class, it is up to each implementation of this class to implement a different function. Below is a brief summary of the function of each  `}<InlineCodeSnip>{`MenuFunction`}</InlineCodeSnip>{`.`}</p>
                     <h2 id="choose-terminal-mode" className="">{`ChooseTerminalMode`}</h2>
+                    <p className="">{`Function: Prepares a list of `}<InlineCodeSnip>{`ITerminalMode`}</InlineCodeSnip>{` objects, and presents the options for the user to select. After parsing the users choice by finding a terminal mode with a name that matches the returned string of the choice the user makes, it then changes the mode and sets its initial menu to the current menu of the  `}<InlineCodeSnip>{`TerminalHandler`}</InlineCodeSnip>{` instance.`}</p>
+                    <p>{` `}<InlineCodeSnip>{`FindModeMenu(ITerminalMode mode)`}</InlineCodeSnip>{` is a unique method of the  `}<InlineCodeSnip>{`ChooseTerminalMode`}</InlineCodeSnip>{` class. This method sets up the environmennt variables if it is the first time loading a menu, and then also ensures that a log file path has been set up. Next, this function sets the available modes paired with their starter menus in a  `}<InlineCodeSnip>{`Dictionary<ITerminalMode, Menu>`}</InlineCodeSnip>{` object. Lastly, the method will attempt to search through the available menus for the one given by the user, before returning it, (which allows the `}<InlineCodeSnip>{`Function()`}</InlineCodeSnip>{` method to determine the mode and menu to set (simply returns the menu value by using searching the mode as a key.)`}</p>
+                    <p>{`Currently, the only available mode is `}<InlineCodeSnip>{`PRODAManager`}</InlineCodeSnip>{`, so the  `}<InlineCodeSnip>{`ChooseTerminalMode`}</InlineCodeSnip>{` will select this upon every call.`}</p>
                     <h2 id="config" className="">{`Config`}</h2>
+                    <p>{`The config menu function was made to allow for configuration of the application where possible. Primarily, it used to allow the user to choose turn off the Outlook Interop feature which automatically scan their inbox for 2-Factor authentication code (back when five codes had to be parsed for all the accounts), but since this has been reduced to one code, the interop functionality is not needed. Furthermore, the feature was not consistent as the Outlook Interop library is not a recommended by Microsoft, and as such could not be relied upon in the long run. `}</p>
+                    <p>{`Any future configuration options could be defined in this `}<InlineCodeSnip>{`Function(object? param)`}</InlineCodeSnip>{` method.`}</p>
                     <h2 id="quit" className="">{`Quit`}</h2>
+                    <p>{`Calls the ADI  `}<InlineCodeSnip>{`Quit()`}</InlineCodeSnip>{` function. This function will cause the currently activated mode to call its  `}<InlineCodeSnip>{`StopTerminalMode()`}</InlineCodeSnip>{` function, where each mode has a defined exit procedure. After this has been completed and the resources have been packed up, the application should close.`}</p>
                     <h2 id="startdva" className="">{`StartDVA_Service`}</h2>
+                    <p>{`This method will attempt to activate the `}<InlineCodeSnip>{`ChromeDriverGenerator`}</InlineCodeSnip>{` servicer, which defines the parameters that each ChromeDriver may be defined. More information about the servicer can be found on the `}<Link href="/Docs/Dev/ODICommands">{`ODI Commands page`}</Link>{`.`}</p>
+                    <p>{`After this, `}<InlineCodeSnip>{`StartDVA_Service`}</InlineCodeSnip>{` calls the `}<InlineCodeSnip>{`StartTerminalMode()`}</InlineCodeSnip>{` function currently active mode (in this case PRODAManager). Similar to the  `}<InlineCodeSnip>{`Quit()`}</InlineCodeSnip>{` function above, this calls a generic interface method which is implemented by all terminal modes. In the case of `}<InlineCodeSnip>{`PRODAManager`}</InlineCodeSnip>{` the definition of `}<InlineCodeSnip>{`StartTerminalMode()`}</InlineCodeSnip>{` will run a method that Starts the ChromeDriver service, and activates the provided list of Chrome instances. Following this, the method uses several `}<Link href="/Docs/Dev/Fundamentals/UtilityMethods">{`windows utility dll functions`}</Link>{` to set up the console for the desired booking environment. A generous section of this method is dedicated towards catching any potential errors and releasing the resources of and closing the application  in the case that the setup failed.`}</p>
+                    <p>{`If successful, the mode will be changed to the `}<InlineCodeSnip>{`Menu.DVAActivatedMenu()`}</InlineCodeSnip>{` menu.`}</p>
+                    <p>{``}</p>
                     <h2 id="logindva" className="">{`LoginDVA_Service`}</h2>
+                    <p>{`This function simply navigates each opened Chrome instance to the PRODA login page, before requesting the username and password of the user. This function is deemed successful if the user manages to login to their PRODA account, once the browser has reached the destination page which stores all DVA bookings.`}</p>
+                    <p>{`If successful, the mode will be changed to the `}<InlineCodeSnip>{`Menu.DVALoggedIn()`}</InlineCodeSnip>{` menu.`}</p>
                     <h2 id="submitdva" className="">{`SubmitDVA_Booking`}</h2>
+                    <p>{`This function will attempt to receive an order number and DVA file number before searching for and submitting the booking if one is found.`}</p>
                     <h2 id="stopdva" className="">{`StopDVA_Service`}</h2>
+                    <p>{`Terminates the current ChromeDriver (alongside any Chrome instances it may have generated) before releasing any other resource associated with the DVA mode.`}</p>
                     <h2 id="viewdva" className="">{`ViewDVABookingHistory`}</h2>
-                    
+                    <p>{`Prints a list of which shows all DVA bookings submitted by the user during the current session. First, it provides a preview of each booking, before allowing the user to select from a given booking to print its full details to the console.`}</p>
                     {/* Enter content here */}
                     </div>
                     <div className="h-96">{``}</div>
