@@ -40,8 +40,7 @@ export default async function RootLayout({
     
       <html lang="en" className="bg-white dark:bg-black bg-no-repeat min-h-full 
         motion-reduce:transition-none dark:text-white transition-all duration-[1500ms]">
-        
-        {/*duration-[1500ms] */}
+        {/*duration-[1500ms]*/}
         {/*transition-all */}
         <head>
           <script dangerouslySetInnerHTML={{ __html: getTheme }} />
@@ -78,8 +77,7 @@ export default async function RootLayout({
 
                                   <ChapterSection name="MenuManagement" link="/Docs/Dev/MenuManagement"/>
                                   <ChapterSection name="Fundamental Classes" link="/Docs/Dev/Fundamentals">
-                                      <SectionPageLink name="About DVA " link="/Docs/Dev/Fundamentals/AboutDVA"/>
-                                      <SectionPageLink name="About PRODA" link="/Docs/Dev/Fundamentals/AboutPRODA"/>
+                                      <SectionPageLink name="About DVA and PRODA " link="/Docs/Dev/Fundamentals/AboutDVAAndPRODA"/>
                                       {/* <SectionPageLink name="ADI Base" link="/Docs/Dev/Fundamentals/ADIBase"/> */}
                                       <SectionPageLink name="BookingRedux" link="/Docs/Dev/Fundamentals/Booking"/>
                                       <SectionPageLink name="Fleets" link="/Docs/Dev/Fundamentals/Fleets"/>
@@ -98,15 +96,10 @@ export default async function RootLayout({
                                       <SectionPageLink name="DVABooking" link="/Docs/Dev/Selenium/DVABooking"/>
                                       {/* <SectionPageLink name="EmailServicer (Deprecated)" link="/Docs/Dev/Selenium/EmailServicer"/> */}
                                       <SectionPageLink name="PRODAManager" link="/Docs/Dev/Selenium/PRODAManager"/>
-                                      <SectionPageLink name="PRODA Menu Management" link="/Docs/Dev/Selenium/PRODAMenuManagement"/>
+                                      {/* <SectionPageLink name="PRODA Menu Management" link="/Docs/Dev/Selenium/PRODAMenuManagement"/> */}
                                   </ChapterSection>
 
-                                  <ChapterSection name="GoogleRequests" link="/Docs/Dev/GoogleRequests">
-                                      <SectionPageLink name="JSONRequestAddressValidation" link="/Docs/Dev/GoogleRequests/JSONRequestAddressValidation"/>
-                                      <SectionPageLink name="JSONSerializedMatrixResult" link="/Docs/Dev/GoogleRequests/JSONSerializedMatrixResult"/>
-                                      <SectionPageLink name="PlacesJSONRequest" link="/Docs/Dev/GoogleRequests/PlacesJSONRequest"/>
-                                      <SectionPageLink name="PlacesJSONResponse" link="/Docs/Dev/GoogleRequests/PlacesJSONResponse"/>
-                                  </ChapterSection>
+                                  <ChapterSection name="GoogleRequests" link="/Docs/Dev/GoogleRequests"/>
 
                                   <ChapterSection name="ODICommands" link="/Docs/Dev/ODICommands">
                                       <SectionPageLink name="AddBookingDispatch" link="/Docs/Dev/ODICommands/AddBookingDispatch"/>
@@ -122,7 +115,6 @@ export default async function RootLayout({
 
                                   <ChapterSection name="Main" link="/Docs/Dev/Main"/>
                               </Chapter>
-
                               {/* <Chapter name="Daily DVA Download" link="/FAQ">
                                   <ChapterSection name="Download File Process" link="/Docs/DownloadFileProcess"/>
                                   <ChapterSection name="Templates and Tools" link="/Docs/Tools"/>

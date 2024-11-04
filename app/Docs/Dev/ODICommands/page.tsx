@@ -95,7 +95,7 @@ const parseResponse_Snip1 = `public virtual async Task<U?> ParseResponse<U>()
             <PageContents id="page-contents">
                 <CSFragment content="SOAPRequest<T>" link="soap-request"/>
                 <CSFragment content="ODIServer" link="odi-server"/>
-                <CSFragment content="ParseResponse<U>()" link="parse-response"/>
+                <CSFragment content="ParseResponse<U>( )" link="parse-response"/>
                 <CSFragment content="AuthController" link="auth-controller"/>
                 <CSFragment content="CreateBookingController" link="create-booking"/>
                 <CSFragment content="SuburbsByName" link="sub-by-name"/>
