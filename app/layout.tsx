@@ -157,7 +157,7 @@ export default async function RootLayout({
               {/* </article> */}
           </div>
           </div>
-          <div className='relative pb-6 text-center text-gray-700 text-sm hover:text-gray-900 dark:text-gray-600 dark:hover:text-gray-500 filter brightness-[1.5] transition ease-in-out duration-500 dark:hover:brightness-[2]'><Link target="blank_" href="https://github.com/mizzi-sesh">{`Developed by Minerva Mizzi — `}<Image className="h-6 w-6 mb-1 ml-1 inline   transition ease-in-out duration-500 "  alt={`GitHub Logo`} src={ghLogo}></Image></Link></div>  
+          <div className='relative pb-6 text-center text-gray-700 text-sm hover:text-gray-1000 dark:text-gray-600 dark:hover:text-gray-500 filter dark:brightness-[1.5] hover:brightness-[2]  transition ease-in-out duration-500 dark:hover:brightness-[2]'><Link target="blank_" href="https://github.com/mizzi-sesh">{`Developed by Minerva Mizzi — `}<Image className="h-6 w-6 mb-1 ml-1 inline  brightness-[3] dark:brightness[1.5] transition ease-in-out duration-500 "  alt={`GitHub Logo`} src={ghLogo}></Image></Link></div>  
         </Suspense>
         
         </body>

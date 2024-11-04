@@ -12,9 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-::selection{
-  background:#9e9e9e
-}
 
 :root { 
   color-scheme: light;
