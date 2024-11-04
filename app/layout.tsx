@@ -8,8 +8,8 @@ import Chapter from './ui/chapter';
 import ChapterSection from './ui/chaptersection';
 import SectionPageLink from './ui/sectionpagelink';
 import Link from 'next/link';
-
-
+import ghLogo from '../public/Octicons-mark-github.svg';
+import Image from 'next/image';
 
 export const radio_canada = Radio_Canada({ subsets: ["latin"], weight: "300" });
 export const radio_canada_bold = Radio_Canada({ subsets: ["latin"], weight: "400" });
@@ -34,7 +34,7 @@ export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {  
+}>) { 
 
     return (
     
@@ -157,7 +157,7 @@ export default async function RootLayout({
               {/* </article> */}
           </div>
           </div>
-          <div className='relative pb-6 text-center text-gray-700 text-sm hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-500'><Link target="blank_" href="https://github.com/mizzi-sesh">{`Developed by Minerva Mizzi`}</Link>{``}</div>  
+          <div className='relative pb-6 text-center text-gray-700 text-sm hover:text-gray-900 dark:text-gray-600 dark:hover:text-gray-500 filter brightness-[1.5] transition ease-in-out duration-500 dark:hover:brightness-[2]'><Link target="blank_" href="https://github.com/mizzi-sesh">{`Developed by Minerva Mizzi — `}<Image className="h-6 w-6 mb-1 ml-1 inline   transition ease-in-out duration-500 "  alt={`GitHub Logo`} src={ghLogo}></Image></Link></div>  
         </Suspense>
         
         </body>
