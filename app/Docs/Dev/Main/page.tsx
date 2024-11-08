@@ -7,11 +7,6 @@ export default function Page () {
    return  (
         <>
             <PageContents id="page-contents">
-                <CSFragment content="H1" link=""/>
-                <CSFragment content="H2" link=""/>
-                <CSFragment content="H3" link=""/>
-                <CSFragment content="H4" link=""/>
-                <CSFragment content="H5" link=""/>
                 <CSFragment content="Back to top" link="/"/>
 
             </PageContents>
@@ -20,9 +15,9 @@ export default function Page () {
                     </div>
                     <div className="prose prose-documentation max-w-none">
                     <h1 id="" className="break-words">{`Main`}</h1>
-                    {/* Enter content here */}
+                    <p>{`The `}<InlineCodeSnip>{`Program.cs`}</InlineCodeSnip>{` file hosts the C# entry point for the application. It also defines some of the error handling used for catching exceptions, and also defines the encryption methods used in the application. There's also a definition for `}<InlineCodeSnip>{`IUserInput`}</InlineCodeSnip>{` which allows the simulation of input by being passed as an extra, optional parameter for interactive methods.`}</p>
+                    <p>{`Since this file is central to execution, it was designed to not host much of the app functionality. Instead, it merely initiates the terminal loop required by menu management, and then handles any errors which require termination of the application.`}</p>
                     </div>
-                    <div className="h-96">{``}</div>
                     <div className="h-96">{``}</div>
             </article>
 

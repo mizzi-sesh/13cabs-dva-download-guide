@@ -1,18 +1,17 @@
+// 'use client';
 import InlineCodeSnip from "@/app/ui/inlinecodesnip";
 import PageContents, { CSFragment } from "@/app/ui/pagecontents";
 import Link from "next/link";
+import { useEffect } from "react";
 // `}<InlineCodeSnip>{` `}</InlineCodeSnip>{` 
-export default function Page () {
-
+ export default function Page () {
    return  (
         <>
             <PageContents id="page-contents">
                 <CSFragment content="JSONRequestAddressValidation" link="validation"/>
                 <CSFragment content="JSONSerializedMatrixResult" link="matrix"/>
                 <CSFragment content="PlacesJSON" link="places"/>
-
                 <CSFragment content="Back to top" link="/"/>
-
             </PageContents>
             <article className="mt-4 w-full min-w-0 max-w-6x1 px-1 md:px-6 min-height-[calc(-103px + 100vh)]">
                 <div className="-mt-4 mb-7 md:mb-10 md:mt-2">
@@ -30,7 +29,6 @@ export default function Page () {
                         <h2 id="places">{`PlacesJSON`}</h2>
                         <p>{`The Nearby Places API was used initially as a back up to find surrounding suburbs if the SOAP requests could not find the street within a defined suburb on the ODI server. However, the architecture was changed to instead use a latitude and longitude from Google Maps, and force the address with the points plotted based on the returned coordinates. the Nearby Places API is only used as a backup if the suburb cannot be found on Google Maps Validation API.`}</p>
                     </div>
-                    <div className="h-96">{``}</div>
                     <div className="h-96">{``}</div>
             </article>
 

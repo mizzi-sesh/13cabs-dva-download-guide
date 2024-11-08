@@ -136,9 +136,7 @@ const parseResponse_Snip1 = `public virtual async Task<U?> ParseResponse<U>()
                         <h2 id='sub-by-name' className=''>{`SuburbsByName`}</h2>
                         <p>{`The `}<InlineCodeSnip>{`SuburbByNameRequest`}</InlineCodeSnip>{` class uses the `}<InlineCodeSnip>{`GetSuburbsByName`}</InlineCodeSnip>{` method in order to search for suburb objects based on a given name and fleet. This function is critical to each booking as two suburb IDs (pickup and destination) will be required to submit bookings to a server. The request itself is very rudimentary, and merely provides the fleet and string required to find a list of valid suburbs.`}</p>
                         <p>{`More information about the SuburbsByName requests can be found `}<Link href="/Docs/Dev/ODICommands/SuburbsByName">{`here`}</Link>{`.`}</p>
-
                     </div>
-                    <div className="h-96">{``}</div>
                     <div className="h-96">{``}</div>
             </article>
 
