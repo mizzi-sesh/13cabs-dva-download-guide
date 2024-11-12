@@ -87,12 +87,12 @@ export default async function RootLayout({
                                       {/* <SectionPageLink name="StreetFindingStrategy (Deprecated)" link="/Docs/Dev/Fundamentals/StreetFindingStrategy"/> */}
                                       {/* <SectionPageLink name="StreetSuffixes (Deprecated)" link="/Docs/Dev/Fundamentals/StreetSuffixes"/> */}
                                       {/* <SectionPageLink name="TimeoutUtility" link="/Docs/Dev/Fundamentals/TimeoutUtility"/> */}
-                                      <SectionPageLink name="Utility Methods" link="/Docs/Dev/Fundamentals/UtilityMethods"/>
+                                      {/* <SectionPageLink name="Utility Methods" link="/Docs/Dev/Fundamentals/UtilityMethods"/> */}
                                   </ChapterSection>
 
                                   <ChapterSection name="Selenium Functionality" link="/Docs/Dev/Selenium">
-                                      <SectionPageLink name="KernelUtilities" link="/Docs/Dev/Selenium/KernelUtilities"/>
-                                      <SectionPageLink name="ChromeDriverGenerator" link="/Docs/Dev/Selenium/ChromeDriverGenerator"/>
+                                      {/* <SectionPageLink name="KernelUtilities" link="/Docs/Dev/Selenium/KernelUtilities"/> */}
+                                      {/* <SectionPageLink name="ChromeDriverGenerator" link="/Docs/Dev/Selenium/ChromeDriverGenerator"/> */}
                                       <SectionPageLink name="DVABooking" link="/Docs/Dev/Selenium/DVABooking"/>
                                       {/* <SectionPageLink name="EmailServicer (Deprecated)" link="/Docs/Dev/Selenium/EmailServicer"/> */}
                                       <SectionPageLink name="PRODAManager" link="/Docs/Dev/Selenium/PRODAManager"/>
@@ -102,7 +102,7 @@ export default async function RootLayout({
                                   <ChapterSection name="GoogleRequests" link="/Docs/Dev/GoogleRequests"/>
 
                                   <ChapterSection name="ODICommands" link="/Docs/Dev/ODICommands">
-                                      <SectionPageLink name="AddBookingDispatch" link="/Docs/Dev/ODICommands/AddBookingDispatch"/>
+                                      {/* <SectionPageLink name="AddBookingDispatch" link="/Docs/Dev/ODICommands/AddBookingDispatch"/> */}
                                       <SectionPageLink name="AuthController" link="/Docs/Dev/ODICommands/AuthController"/>
                                       <ChapterSection name="CreateBookingController" link="/Docs/Dev/ODICommands/CreateBookingController">
                                           <SectionPageLink name="BookingAccounts" link="/Docs/Dev/ODICommands/CreateBookingController/BookingAccounts"/>
