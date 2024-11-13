@@ -1,4 +1,4 @@
-'use client'
+
 import LinkCard from "@/app/ui/linkcard";
 import PageContents, { CSFragment } from "@/app/ui/pagecontents";
 import Link from "next/link";
@@ -13,12 +13,12 @@ export default function Page() {
 
                 <CSFragment content="Tools Used" link="tools-used"/> 
             </PageContents>
-            <article className="mt-4 w-full min-w-0 max-w-6x1 px-1 md:px-6 min-height-[calc(-103px + 100vh)]">
+            <article className="mt-4 w-full min-w-0 max-w-6x1 px-4 md:px-2 md:px-6 min-height-[calc(-103px + 100vh)] ">
                 <div className="-mt-4 mb-7 md:mb-10 md:mt-2">
                 {/* TODO: Make a page pass which links current chapter > chapter section > section page */}
                 </div>
                 <div className="prose prose-documentation max-w-none">
-
+                <div className="h-[15px]">{``}</div>
                     <h1 id="adi" className="break-words">{`Automatic Dispatch Interface (ADI)`}</h1>
                     <p>{`Welcome to the ADI developer documentation! If you're interested in maintaining or extending the ADI platform, this page is a great place to start.
                        Although broader programming knowledge will be required to make the most of this documentation, 
@@ -126,11 +126,11 @@ export default function Page() {
                             <LinkCard name="Starting Development" link="/Docs/Dev/GettingStarted">
                                 {`Learn what you'll need to get started on modifying and compiling ADI.`}
                             </LinkCard>
-                            <LinkCard name="About PRODA" link="/Docs/Dev/Fundamentals/AboutPRODA">
+                            <LinkCard name="About PRODA and DVA" link="/Docs/Dev/Fundamentals/AboutDVAAndPRODA">
                                 {`Learn about the provider portal website, and how we wrap the website to allow for DVA booking submissions.`}
                             </LinkCard>
-                            <LinkCard name="About DVA" link="/Docs/Dev/Fundamentals/AboutDVA">
-                                {`Learn about the DVA faxes and the conventions used in ADI to describe transport fields.`}
+                            <LinkCard name="About DVA" link="/Docs/Dev/Fundamentals">
+                                {`Learn about the fundamental classes designed for ADI.`}
                             </LinkCard>
                             <LinkCard name="Selenium" link="/Docs/Dev/Selenium">
                                 {`Visit here to find out more about how ChromeDriver is used in the project.`}
@@ -145,6 +145,8 @@ export default function Page() {
                     </div>
                 </div>
             </article>
+            <div className="h-96">{``}</div>
+
         </>
     )
 }

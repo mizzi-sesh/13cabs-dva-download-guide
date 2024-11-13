@@ -26,12 +26,15 @@ export default function Page () {
                 <CSFragment content="Back to top" link=""/>
 
             </PageContents>
-            <article className="mt-4 w-full min-w-0 max-w-6x1 px-1 md:px-6 min-height-[calc(-103px + 100vh)]">
+            <article className="mt-4 w-full min-w-0 max-w-6x1 px-2 md:px-6 min-height-[calc(-103px + 100vh)]">
                 <div className="-mt-4 mb-7 md:mb-10 md:mt-2">
                 {/* TODO: Make a page pass which links current chapter > chapter section > section page */}
                 </div>
                 <div className="prose prose-documentation max-w-none">
+                    <div className="h-[15px]">{``}</div>
+                
                     <h1 id="adi" className="break-words">{`Environment Variables`}</h1>
+
                     <p>{`ADI utilises a custom made encryption strategy to store it's environment variables in a `}<InlineCodeSnip>{`Config.Locked`}</InlineCodeSnip>{` file, which may be found in the the root project directory. `}</p>
                     <h2 id="variables-used">{`Variables used in the project`}</h2>
                     <br/>

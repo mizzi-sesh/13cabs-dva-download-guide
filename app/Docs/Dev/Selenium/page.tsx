@@ -13,16 +13,17 @@ export default function Page () {
                 <CSFragment content="Back to top" link="/"/>
 
             </PageContents>
-            <article className="mt-4 w-full min-w-0 max-w-6x1 px-1 md:px-6 min-height-[calc(-103px + 100vh)]">
+            <article className="mt-4 w-full min-w-0 max-w-6x1 px-2 md:px-6 min-height-[calc(-103px + 100vh)]">
                 <div className="-mt-4 mb-7 md:mb-10 md:mt-2">
                     </div>
                     <div className="prose prose-documentation max-w-none">
-                    <h1 id="" className="break-words">{`Selenium Functionality`}</h1>
+                    <div className="h-[15px]">{``}</div>
+                    <h1 id="" className="break-words ">{`Selenium Functionality`}</h1>
                     <p>{`Selenium WebDriver is the backbone library for the ADI's DVA booking submissions. Selenium is an open source library designed and developed for testing web services on browsers, by simulating user interaction with generated browser instances.`}</p>
                     <p>{`WebDriver was chosen for development, even though it is a testing framework, specifically due to the improbability of the PRODA website layout changing, and if so, it would only be very infrequently. The Digital Provider Portal is a service relied upon by thousands of government service providers across Australia, so it is important that the layout and behaviour are predictable and consistent. While a potential PRODA change may require an ADI update in future, the requirements for ADI are not technically intensive, as the service is simply used to load the web page, log-in and submit order numbers to scrape results for booking submissions.`}</p>
                     <h2 id="documentation">{`Selenium Documentation`}</h2>
                     <p>{`Selenium documentation can be found `} <Link target="_blank" href="https://www.selenium.dev/documentation/webdriver/drivers/">{`on their website`}</Link>{` for perusal. Most functionality is simply accessed from a WebDriver object itself, which provides the options to navigate URLs, select HTML data on the currently opened page, as well as quitting the browser.`}</p>
-                    <p>{`Before ChromeDriver is used, several options are submitted in the `}<InlineCodeSnip><Link href="/Docs/Dev/Selenium/ChromeDriverGenerator">{`CustomChromeDriver.cs`}</Link>{``}</InlineCodeSnip>{` file that define important browser settings for general use. This includes the headless option to automatically hide the browser from view, the silent options to suppress diagnostic messages which are normally submitted to the console and the default timeout limit for ChromeDriver actions.`}</p>
+                    <p>{`Before ChromeDriver is used, options are submitted in the `}<InlineCodeSnip>{`CustomChromeDriver.cs`}{``}</InlineCodeSnip>{` file that define important browser settings for general use. This includes the headless option to automatically hide the browser from view, the silent options to suppress diagnostic messages which are normally submitted to the console and the default timeout limit for ChromeDriver actions.`}</p>
                     <h2 id="nuget">{`WebDriver NuGet`}</h2>
                     <p>{`When developing the application, the GitHub repository should automatically download the required ChromeDriver dependencies, though if this does not work, the NuGet for the C# distribution of Selenium WebDriver can be found `} <Link href="https://www.nuget.org/packages/Selenium.WebDriver" target="_blank">{`here`}</Link>{`.`}</p>
                     <p>{`More information on setting up project dependencies can be found on the `}<Link href="/Docs/Dev/GettingStarted#clone-github">{`Getting Started`}</Link>{` page.`}</p>
@@ -49,7 +50,6 @@ export default function Page () {
                     </ul>
                     
                     </div>
-                    <div className="h-96">{``}</div>
                     <div className="h-96">{``}</div>
             </article>
 

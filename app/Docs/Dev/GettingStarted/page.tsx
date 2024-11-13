@@ -13,16 +13,17 @@ export default function Page () {
                 <CSFragment content="Submit Environment Variables" link="setup-build"/>
                 <CSFragment content="Run the Project" link="run-project"/>
             </PageContents>
-            <article className="mt-4 w-full min-w-0 max-w-6x1 px-1 md:px-6 min-height-[calc(-103px + 100vh)]">
+            <article className="mt-4 w-full min-w-0 max-w-6x1 px-2 md:px-6 min-height-[calc(-103px + 100vh)]">
                 <div className="-mt-4 mb-7 md:mb-10 md:mt-2">
                 {/* TODO: Make a page pass which links current chapter > chapter section > section page */}
                 </div>
                 <div className="prose prose-documentation max-w-none">
+                <div className="h-[15px]">{``}</div>
                 <h1 id="" className="break-words">{`Getting Started with Development`}</h1>
                 <br/>
                 <h2 id="requirements">{`Requirements`}</h2>
 
-                <p>
+            
                     <ul className="list-disc ml-6">
                         <li className="pb-2">
                            {`It is required for the developer to have Legal access to a PRODA portal account.`} 
@@ -44,7 +45,6 @@ export default function Page () {
                         </li>
                         {`  `}
                     </ul>
-                </p>
                 <p>{`To get started with development, simply follow these steps:`}</p>
                 <ol className="list-decimal">
                     <li className="pb-4">

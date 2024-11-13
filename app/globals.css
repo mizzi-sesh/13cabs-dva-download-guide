@@ -5,11 +5,18 @@
 .sticky_header {
   position:sticky;
   top:0;
-
 }
+
+ @layer components{
+ body {
+    @apply overflow-x-clip;
+}
+} 
+
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 

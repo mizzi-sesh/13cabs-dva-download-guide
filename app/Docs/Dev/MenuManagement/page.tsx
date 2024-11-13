@@ -55,16 +55,17 @@ export default function Page () {
                 <CSFragment content="Back to top" link="/"/>
 
             </PageContents>
-            <article className="mt-4 w-full min-w-0 max-w-6x1 px-1 md:px-6 min-height-[calc(-103px + 100vh)]">
+            <article className="mt-4 w-full min-w-0 max-w-6x1 px-2 md:px-6 min-height-[calc(-103px + 100vh)]">
                 <div className="-mt-4 mb-7 md:mb-10 md:mt-2">
                     </div>
                     <div className="prose prose-documentation max-w-none">
+                    <div className="h-[15px]">{``}</div>
                     <h1 id="" className="break-words">{`MenuManagement`}</h1>
                     <br/>
                     <p>{`ADI menu management uses a loop which reads a `}<InlineCodeSnip>{`Menu`}</InlineCodeSnip>{` object to print the `}<InlineCodeSnip>{`MenuFunction`}</InlineCodeSnip>{` objects available within the current menu. In addition to the list of `}<InlineCodeSnip>{`MenuFunction`}</InlineCodeSnip>{` objects, each menu has a name, as well as some diagnostic information that helps the agent to keep track of their work and ensure that all bookings are submitted successfully.`}</p>
                     <p>{`The user can select a function by entering a command alias into the terminal. These command alias' are shown in menu at all times, so the user can easily see and enter any given command quickly. `}</p>
                     <GradientBorder>
-                        <Image className="scale-[100%]" src={adiScreenCap} alt="Image of ADI Menu"/>
+                        <Image className="md:scale-[100%] scale-125" src={adiScreenCap} alt="Image of ADI Menu"/>
                     </GradientBorder>
                     <p>{`In this image, the various methods which are available within the `}<InlineCodeSnip>{`DVALoggedIn()`}</InlineCodeSnip>{` menu can be seen. The currently active menu can be seen on the top left and the mode is visible in the top right. After this, each `}<InlineCodeSnip>{`MenuFunction`}</InlineCodeSnip>{` available to the currently active menu can be seen. In this example, the following `}<InlineCodeSnip>{`MenuFunction`}</InlineCodeSnip>{`s are available: `}<InlineCodeSnip>{`SubmitDVA_Booking`}</InlineCodeSnip>{`, `}<InlineCodeSnip>{`ViewDVABookingHistory`}</InlineCodeSnip>{`, `}<InlineCodeSnip>{`StopDVA_Service`}</InlineCodeSnip>{`, `}<InlineCodeSnip>{`Config`}</InlineCodeSnip>{` and `}<InlineCodeSnip>{`Quit`}</InlineCodeSnip>{`.`}</p>
                     <p>{`Each menu function has a list of valid shortcuts shown next to it, which can be entered into the terminal input by the user to access the method's function.`}</p>

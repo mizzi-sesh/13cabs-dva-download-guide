@@ -6,7 +6,7 @@ import { clsx } from 'clsx'
 import { getEventListeners } from "events";
 import { usePathname } from "next/navigation";
 
-export default function SectionPageLink({children, link, name}: {children?: React.ReactNode, link: string, name: string}){
+export default function SectionPageLink({children, link, name, className}: {children?: React.ReactNode, link: string, name: string, className?: string}){
 
     const pathname = usePathname();
     return(
@@ -15,7 +15,7 @@ export default function SectionPageLink({children, link, name}: {children?: Reac
             <Link className={clsx({'text-gray-500': pathname !== link, },
             {'font-bold text-orange-600 border-l border-current ' :  pathname === link, },
             ' font-semibold dark:hover:text-gray-300 hover:text-black relative flex w-full cursor-pointer',
-            'items-center justify-between py-1 pl-5 text-left text-sm transition ease-in-out duration-350')} 
+            `items-center justify-between py-1 pl-5 text-left text-sm transition ease-in-out duration-350 ${className}`)} 
             href={link}>
                 {name}
             </Link>

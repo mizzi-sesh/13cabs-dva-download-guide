@@ -7,7 +7,7 @@ import path from "path";
 import React, { Children, Component, CSSProperties, ReactNode, useRef, useState } from "react";
 
 
-export default function ChapterSection(props: { link: string, name: string, children?: React.ReactNode}){
+export default function ChapterSection(props: { link: string, name: string, children?: React.ReactNode, className?: string}){
 
     const pathname = usePathname();
     const [dataCollapsed , toggleCollapse] = useState(() => {        
@@ -71,7 +71,7 @@ export default function ChapterSection(props: { link: string, name: string, chil
             <Link href={props.link} className={clsx({'font-black dark:text-gray-400 text-gray-600': pathname !== props.link,},
             {'dark:hover:text-gray-300 font-extrabold text-orange-600' :  pathname === props.link, },
              'hover:text-black dark:hover:text-gray-300 relative flex  w-full cursor-pointer items-center',
-            'justify-between rounded-md py-1 pl-5 text-left text-sm transition-all ease-in-out duration-300')} 
+            `justify-between rounded-md py-1 pl-5 text-left text-sm transition-all ease-in-out duration-300 ${props.className}`)} 
             onClick={toggleChapterOrientation}>
                 {props.name}
                 <svg data-testid="geist-icon" fill="none" height="24" 
