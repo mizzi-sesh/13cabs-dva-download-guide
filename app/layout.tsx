@@ -69,9 +69,9 @@ export default async function RootLayout({
                                   <ChapterSection name="Fundamental Classes" link="/Docs/Dev/Fundamentals">
                                       <SectionPageLink name="About DVA and PRODA " link="/Docs/Dev/Fundamentals/AboutDVAAndPRODA"/>
                                       <SectionPageLink name="BookingRedux" link="/Docs/Dev/Fundamentals/Booking"/>
-                                      <SectionPageLink name="Fleets" link="/Docs/Dev/Fundamentals/Fleets"/>
+                                      {/* <SectionPageLink name="Fleets" link="/Docs/Dev/Fundamentals/Fleets"/>
                                       <SectionPageLink name="Logging" link="/Docs/Dev/Fundamentals/Logging"/>
-                                      <SectionPageLink name="SQL Parsing Objects" link="/Docs/Dev/Fundamentals/SQLParsingObjects"/>
+                                      <SectionPageLink name="SQL Parsing Objects" link="/Docs/Dev/Fundamentals/SQLParsingObjects"/> */}
                                   </ChapterSection>
 
                                   <ChapterSection name="Selenium Functionality" link="/Docs/Dev/Selenium">
@@ -82,13 +82,13 @@ export default async function RootLayout({
                                   <ChapterSection name="GoogleRequests" link="/Docs/Dev/GoogleRequests"/>
 
                                   <ChapterSection name="ODICommands" link="/Docs/Dev/ODICommands">
-                                      <SectionPageLink name="AuthController" link="/Docs/Dev/ODICommands/AuthController"/>
+                                      {/* <SectionPageLink name="AuthController" link="/Docs/Dev/ODICommands/AuthController"/>
                                       <ChapterSection name="CreateBookingController" link="/Docs/Dev/ODICommands/CreateBookingController">
                                       <SectionPageLink name="BookingLocations" link="/Docs/Dev/ODICommands/CreateBookingController/BookingLocations"/>
                                           <SectionPageLink name="BookingAccounts" link="/Docs/Dev/ODICommands/CreateBookingController/BookingAccounts"/>
                                           <SectionPageLink name="BookingHeader" link="/Docs/Dev/ODICommands/CreateBookingController/BookingHeader"/>
                                       </ChapterSection>
-                                      <SectionPageLink name="SuburbsByName" link="/Docs/Dev/ODICommands/SuburbsByName"/>                                    
+                                      <SectionPageLink name="SuburbsByName" link="/Docs/Dev/ODICommands/SuburbsByName"/>                                     */}
                                   </ChapterSection>
                                   <ChapterSection name="Main" link="/Docs/Dev/Main"/>
                               </Chapter>

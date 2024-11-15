@@ -3,6 +3,7 @@ import LinkCard from "@/app/ui/linkcard";
 import PageContents, { CSFragment } from "@/app/ui/pagecontents";
 import Link from "next/link";
 import Image from "next/image";
+import DVABooking from "../public/DVABookingSummaryScreenCap.png"
 
 
 //Test commit
@@ -34,7 +35,10 @@ export default function Page() {
                         able to be implemented in production. However, the application has effectively replaced the previous workflow for DVA booking submissions, and so this 
                         documentation is primarily concerned with maintenance, whilst also specifying information that enables future development.`}
                     </p>
-                    <Image src={``} alt={`booking summary`}/>
+                    
+                    <Image className="scale-[95%]" src={DVABooking} alt={`booking summary`}/>
+                    <div className="text-center italic text-sm text-gray-400">{`ADI submitted DVA booking, some fields have been censored to protect customer privacy`}</div>
+                    <br/>
                     <h2 id="features">Features</h2>
                     <div className="overflow-x-auto">
                         <table className="w-full table-auto">
@@ -47,17 +51,15 @@ export default function Page() {
                         <tbody>
                             <tr>
                             <td>
-                                <Link href="/Docs/User/Operation#submit-booking">
                                 {`Simple Booking Submission`}
-                                </Link>
                             </td>
                             <td>{`Previously, manually submitted bookings required several fields for successful dispatch. ADI reduces the number of required fields down from 16 to two, drastically simplifying the process.`}</td>
                             </tr>
                             <tr>
                             <td>
-                                <Link href="/Docs/User/Operation#booking-history">
+                                
                                 {`Booking History`}
-                                </Link>
+                                
                             </td>
                             <td>
                                 {`Review bookings submitted during each session by simply bringing up the "View Booking History" menu, to show the fleet, order numbers and name of all bookings submitted during an ODI session. The last submitted booking features a reminder on the main menu at all times.`}
@@ -65,15 +67,13 @@ export default function Page() {
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="/Docs/Dev/Fundamentals/Fleets">
                                         {`Fleet Detection`}
-                                    </a>
                                 </td>
                                 <td>{`Across over 30 fleets nation wide, ADI can automatically detect and submit bookings without the user having to determine the fleet.`}</td>
                             </tr>
                             <tr> 
                                 <td>
-                                    <a href="/Docs/Dev/Fundamentals/Logging">{`File-based Logging`}</a>
+                                    {`File-based Logging`}
                                 </td>
                                 <td>
                                     {`ADI automatically records information regarding any exceptions or faults in a daily log file. It also retains all SOAP messages submitted during use, as well as the entire booking history when exiting the application.`}
@@ -81,9 +81,7 @@ export default function Page() {
                             </tr>
                             <tr>
                                 <td>
-                                    {/* <a href="/Docs/Dev/Fundamentals/Logging"> */}
                                     {`Less Mistakes`}
-                                    {/* </a> */}
                                 </td>
                                 <td>
                                     {`With manual booking submissions, input errors occurred often due to the amount of information which required duplication, but with ADI the bookings are almost entirely copied from the original booking before dispatch, so they're always accurate to the original.`}
@@ -133,7 +131,7 @@ export default function Page() {
                             <LinkCard name="About PRODA and DVA" link="/Docs/Dev/Fundamentals/AboutDVAAndPRODA">
                                 {`Learn about the provider portal website, and how we wrap the website to allow for DVA booking submissions.`}
                             </LinkCard>
-                            <LinkCard name="About DVA" link="/Docs/Dev/Fundamentals">
+                            <LinkCard name="Fundamental Classes" link="/Docs/Dev/Fundamentals">
                                 {`Learn about the fundamental classes designed for ADI.`}
                             </LinkCard>
                             <LinkCard name="Selenium" link="/Docs/Dev/Selenium">

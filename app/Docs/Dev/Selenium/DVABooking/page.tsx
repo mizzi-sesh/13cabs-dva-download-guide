@@ -176,12 +176,12 @@ Regex puTimeLast = new("((pickup)\\W{0,2}|((pick|p)\\W{0,2}[u][p]?\\W?))(time|at
                 <CSFragment content="ScrapeDVABooking(...)" link="scrape-dva"/>
                 <CSFragment content="DeriveBookingFromTable(...)" link="derive-booking"/>
                 <CSFragment content="GenerateBookingFromCache(...)" link="generate-booking"/>
-                <CSFragment content="DesiredPickUpTime(..)" link="desired-pickup"/>
+                {/* <CSFragment content="DesiredPickUpTime(..)" link="desired-pickup"/>
                 <CSFragment content="DeterminePreBookedPickUpTime(...)" link="determine-prebook"/>
                 <CSFragment content="GetBookingTable(...)" link="get-booking-table"/>
                 <CSFragment content="SearchBrowserForBooking(...)" link="search-browser"/>
                 <CSFragment content="ScrapeDVATable(...)" link="scrape-dva-table"/>
-                <CSFragment content="DVABooking" link="dvabooking"/>
+                <CSFragment content="DVABooking" link="dvabooking"/> */}
                 <CSFragment content="Back to top" link="/"/>
             </PageContents>
             <article className="mt-4 w-full min-w-0 max-w-6x1 px-2 md:px-6 min-height-[calc(-103px + 100vh)]">
@@ -264,7 +264,7 @@ Regex puTimeLast = new("((pickup)\\W{0,2}|((pick|p)\\W{0,2}[u][p]?\\W?))(time|at
 
                         <p>{`Finally, the various local fields are compiled into a single `}<InlineCodeSnip>{`DVAInfo`}</InlineCodeSnip>{` object, which is returned alongside the forced address array in a tuple.`}</p>
 
-                        <h2 id="desired-pickup" className="">{`DesiredPickUpTime(...)`}</h2>
+                        {/* <h2 id="desired-pickup" className="">{`DesiredPickUpTime(...)`}</h2>
                         <p>{``}</p>
 
                         <h2 id="determine-prebook" className="">{`DeterminePreBookedPickUpTime(...)`}</h2>
@@ -280,13 +280,11 @@ Regex puTimeLast = new("((pickup)\\W{0,2}|((pick|p)\\W{0,2}[u][p]?\\W?))(time|at
 
 
                         <h2 id="scrape-dva-table" className="">{`ScrapeDVATable(...)`}</h2>
-                        <p>{``}</p>
-                        
-
+                        <p>{``}</p> */}
              
-
+{/* 
                         <h2 id="dvabooking" className="">{`DVABooking`}</h2>
-                        <p>{``}</p>
+                        <p>{``}</p> */}
                     </div>
                     <div className="h-96">{``}</div>
             </article>

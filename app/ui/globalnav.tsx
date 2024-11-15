@@ -131,9 +131,9 @@ export default function GlobalNavigation(){
                 <ChapterSection name="Fundamental Classes" link="/Docs/Dev/Fundamentals" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700">
                   <SectionPageLink name="About DVA and PRODA " link="/Docs/Dev/Fundamentals/AboutDVAAndPRODA" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
                   <SectionPageLink name="BookingRedux" link="/Docs/Dev/Fundamentals/Booking" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
-                  <SectionPageLink name="Fleets" link="/Docs/Dev/Fundamentals/Fleets" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
+                  {/* <SectionPageLink name="Fleets" link="/Docs/Dev/Fundamentals/Fleets" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
                   <SectionPageLink name="Logging" link="/Docs/Dev/Fundamentals/Logging" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
-                  <SectionPageLink name="SQL Parsing Objects" link="/Docs/Dev/Fundamentals/SQLParsingObjects" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
+                  <SectionPageLink name="SQL Parsing Objects" link="/Docs/Dev/Fundamentals/SQLParsingObjects" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/> */}
                 </ChapterSection>
 
                 <ChapterSection name="Selenium Functionality" link="/Docs/Dev/Selenium" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700">
@@ -144,7 +144,7 @@ export default function GlobalNavigation(){
                 <ChapterSection name="GoogleRequests" link="/Docs/Dev/GoogleRequests" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
 
                 <ChapterSection name="ODICommands" link="/Docs/Dev/ODICommands" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700">
-                    <SectionPageLink name="AuthController" link="/Docs/Dev/ODICommands/AuthController" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
+                    {/* <SectionPageLink name="AuthController" link="/Docs/Dev/ODICommands/AuthController" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
 
                     <ChapterSection name="CreateBookingController" link="/Docs/Dev/ODICommands/CreateBookingController" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700">
                       <SectionPageLink name="BookingLocations" link="/Docs/Dev/ODICommands/CreateBookingController/BookingLocations" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
@@ -152,7 +152,7 @@ export default function GlobalNavigation(){
                       <SectionPageLink name="BookingHeader" link="/Docs/Dev/ODICommands/CreateBookingController/BookingHeader" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>
                     </ChapterSection>
 
-                    <SectionPageLink name="SuburbsByName" link="/Docs/Dev/ODICommands/SuburbsByName" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>                                    
+                    <SectionPageLink name="SuburbsByName" link="/Docs/Dev/ODICommands/SuburbsByName" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>                                     */}
                 </ChapterSection>
 
                 <ChapterSection name="Main" link="/Docs/Dev/Main" className="bg-gradient-to-l dark:from-gray-800 from-60% from-gray-300 hover:from-gray-400 dark:hover:from-gray-700"/>

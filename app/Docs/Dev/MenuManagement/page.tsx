@@ -11,7 +11,7 @@ import { CustomSynxtaxHighligher } from "@/app/ui/customsyntaxhighlighter";
 //     return <Image {...props} unoptimized className="" alt="PFP"/>
 // }
 
-function GradientBorder({
+export function GradientBorder({
     children,
   }: Readonly<{
     children: React.ReactNode;
