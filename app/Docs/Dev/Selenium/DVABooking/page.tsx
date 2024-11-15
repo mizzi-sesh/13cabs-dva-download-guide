@@ -154,10 +154,21 @@ const scrapeDVASnip4 = `
     return (output.Item1, pbrBookingInfoObject.Item1, output.Item2, pbrBookingInfoObject.Item2);
 }`
 
-const generateBookingSnip1 = `private static async Task<(DVAInfo?, Address[]?)> GenerateBookingFromCache(DVAInfoCache? dvaInfo, Fleets fleet, int? obOrderNumber = null, string? chosenPhoneNumber = null, bool pbrBooking = false, AutomaticDispatchInterface.IUserInput? fakeInput = null, FoundSuburb? pickUpSuburb = null)
+const generateBookingSnip1 = `private static async Task<(
+                        DVAInfo?,
+                        Address[]?)> 
+                            GenerateBookingFromCache(
+                                DVAInfoCache? dvaInfo,
+                                Fleets fleet,
+                                int? obOrderNumber = null,
+                                string? chosenPhoneNumber = null,
+                                bool pbrBooking = false,
+                                /*...*/,
+                                FoundSuburb? pickUpSuburb = null)
+                                
 `
-
-
+const generateBookingSnip2 = `Regex puTimeFirst = new("((1[0-9]|2[0-3]|0?[1-9])\\W?([0-5][0-9])(?! ?\\d{3}) ?([AaPp][Mm])?)((pickup)\\W{0,2}|((pick|p)\\W{0,2}[u][p]?\\W?))");
+Regex puTimeLast = new("((pickup)\\W{0,2}|((pick|p)\\W{0,2}[u][p]?\\W?))(time|at|\\W){0,3}((1[0-9]|2[0-3]|0?[1-9])\\W?([0-5][0-9])(?! ?\\d{3}) ?([AaPp][Mm])?)");`
    return  (
         <>
             <PageContents id="page-contents">
@@ -165,12 +176,11 @@ const generateBookingSnip1 = `private static async Task<(DVAInfo?, Address[]?)> 
                 <CSFragment content="ScrapeDVABooking(...)" link="scrape-dva"/>
                 <CSFragment content="DeriveBookingFromTable(...)" link="derive-booking"/>
                 <CSFragment content="GenerateBookingFromCache(...)" link="generate-booking"/>
+                <CSFragment content="DesiredPickUpTime(..)" link="desired-pickup"/>
                 <CSFragment content="DeterminePreBookedPickUpTime(...)" link="determine-prebook"/>
                 <CSFragment content="GetBookingTable(...)" link="get-booking-table"/>
                 <CSFragment content="SearchBrowserForBooking(...)" link="search-browser"/>
                 <CSFragment content="ScrapeDVATable(...)" link="scrape-dva-table"/>
-                <CSFragment content="DesiredPickUpTime(..)" link="desired-pickup"/>
-                <CSFragment content="YieldDVABookingInformation(...)" link="yield-booking-info"/>
                 <CSFragment content="DVABooking" link="dvabooking"/>
                 <CSFragment content="Back to top" link="/"/>
             </PageContents>
@@ -189,7 +199,7 @@ const generateBookingSnip1 = `private static async Task<(DVAInfo?, Address[]?)> 
                         <ul className="ml-6 mb-4 list-disc space-y-2">
                             <li ><InlineCodeSnip>{`DirectionDVA`}</InlineCodeSnip>{` — An enumerator object which notes whether the retrieved DVA booking is traveling inbound or outbound.`}</li>
                             <li><InlineCodeSnip>{`OrderStatusDVA`}</InlineCodeSnip>{` — An enumerator object which notes the retrieved status of the order. May be set to either `}<InlineCodeSnip>{`Dispatched`}</InlineCodeSnip>{`, `}<InlineCodeSnip>{`Cancelled`}</InlineCodeSnip>{` or `}<InlineCodeSnip>{`Completed`}</InlineCodeSnip>{`.`}</li>
-                            <li><InlineCodeSnip>{`FileNumber`}</InlineCodeSnip>{` — A string which notes the retrieved `}<Link href="/Docs/Dev/Fundamentals/AboutDVAAndPRODA#dva">{`DVA File Number`}</Link>{`to identify the veteran for DVA services.`}</li>
+                            <li><InlineCodeSnip>{`FileNumber`}</InlineCodeSnip>{` — A string which notes the retrieved `}<Link href="/Docs/Dev/Fundamentals/AboutDVAAndPRODA#dva">{`DVA File Number`}</Link>{` to identify the veteran for DVA services.`}</li>
                             <li><InlineCodeSnip>{`OrderNumber`}</InlineCodeSnip>{` — An 8-digit integer that defines the unique identifier of the booking.`}</li>
                             <li><InlineCodeSnip>{`SpecialInstructions`}</InlineCodeSnip>{` — A string to define instructions for the booking agent and driver such as: pickup time, phone numbers, call on approach or pre-booked returns.`}</li>
                         </ul>
@@ -221,14 +231,41 @@ const generateBookingSnip1 = `private static async Task<(DVAInfo?, Address[]?)> 
 
 
                         <h2 id="derive-booking" className="">{`DeriveBookingFromTable(...)`}</h2>
-                        <p>{`This method receives an `}<InlineCodeSnip>{`IWebElement`}</InlineCodeSnip>{` table, a DVA file name, and an order number, and produces the `}<InlineCodeSnip>{`DVAInfoCache?`}</InlineCodeSnip>{` record by checking for `}<InlineCodeSnip>{`XPaths`}</InlineCodeSnip>{` relative to the table which are consistently associated with specific table cells. The info cache allows for simple transfer and printing of the DVA booking information. `}</p>
+                        <p>{`This method receives an `}<InlineCodeSnip>{`IWebElement`}</InlineCodeSnip>{` table, a DVA file name, and an order number, and produces the `}<InlineCodeSnip>{`DVAInfoCache?`}</InlineCodeSnip>{` record by checking for `}<InlineCodeSnip>{`XPaths`}</InlineCodeSnip>{` relative to the table which are consistently associated with specific table cells. The info cache allows for simple transfer and printing of the DVA booking information.`}</p>
 
 
                         <h2 id="generate-booking" className="">{`GenerateBookingFromCache(...)`}</h2>
+                        <br/>
                         <CustomSynxtaxHighligher language="csharp" code={generateBookingSnip1}/>
                         
-                        <p>{``}</p>
+                        <p>{``}<InlineCodeSnip>{`GenerateBookingFromCache()`}</InlineCodeSnip>{` is response for taking a `}<InlineCodeSnip>{`DVAInfoCache()`}</InlineCodeSnip>{` object, alongside a bookings determined fleet and pickup suburb; as well as an optional outbound order number, phone number and pre-booked return switch. The method returns a tuple which represents all the booking information, and array of addresses which will store the compounded pickup and destinations addresses respectively.`}</p>
 
+                        <p>{`The booking will first try to retrieve information for the dispatch system booking information field. While this field isn't important to the DVA information, it is used in the booking dispatch application to help clarify some useful information to the user. `}<InlineCodeSnip>{`YieldDVABookingInformation()`}</InlineCodeSnip>{` will take a supplied appointment time, booking direction and an outbound order number if there is one and return a single string which summarises the information. `}</p>
+
+                        <p>{`Next, the destination suburb is searched for using the fleet and destination suburb field (string) of the booking information, and then both the pickup and destination suburbs are then converted into the `}<InlineCodeSnip>{`GetSuburbByName`}</InlineCodeSnip>{` suburb variant so it may be compatible with the `}<InlineCodeSnip>{`ForceAddressWithNameAndSuburb()`}</InlineCodeSnip>{` method which is called immediately after. Both the pickup and the destination are requested in parallel across two threads to help speed up the overall booking process.`}</p>
+
+                        <p>{`For each of the pickup and destination, if the force address method yields a result it will be converted into a final address object which has the IDs of all `}<InlineCodeSnip>{`StreetDesignation`}</InlineCodeSnip>{`s set to `}<InlineCodeSnip>{`-1`}</InlineCodeSnip>{`. `}</p>
+                        
+                        <p>{`An array of addresses stores the final pickup (on index 0) and destination (on index 1) objects.`}</p>
+
+                        <p>{`If at this point, the pickup or destination addresses are still null, the generate booking method will utilise legacy functionality as a back up, which strictly serves SOAP requests for the dispatch server which send and receive messages until an address can be built. This functionality is slower than the force address method as the required field validity is more granular than an object which can ignore most of the ID's required to submit a booking without forcing the address, though sometimes the Google Maps API is not able to return a valid address, and so the mostly retired booking strategies can be used in this case.`}</p>
+
+                        <p>{`The last part of the Generate booking method will set several fields of the pickup and destination objects. The pickup phone number (which is the phone number used by the dispatch service when the driver would like to call the customer), is automatically set to the phone number that the user selected previously, and the optional destination number is set if a destination phone number is available in the original booking.`}</p>
+
+                        <p>{`The primary fields manipulated at this stage are fields which relate to the pickup time and date. First, the appointment date and time are stored in a  `}<InlineCodeSnip>{`DateTimeOffset`}</InlineCodeSnip>{` object, and the method then uses a method from the  `}<InlineCodeSnip>{`TravelTimeEstimation`}</InlineCodeSnip>{` static class located in the booking class, which will submit two addresses to the Google Maps Distance Matrix API, and then return an integer of the travel time in minutes.`}</p>
+
+                        <CustomSynxtaxHighligher language="csharp" code={generateBookingSnip2}/>
+
+                        <p>{`After this has been calculated the address checks through the bookings special instructions field, and uses a complex regular expression to determine if the booking has a specified pickup time. If a requested pickup time is found, the retrieved string will be adjusted and transformed into a `}<InlineCodeSnip>{`DateTimeOffset`}</InlineCodeSnip>{` object.`}</p>
+
+                        <p>{`If the pre-booked return parameter has been set to true, or if the booking is traveling outbound and returns a pre-booked pick up time (which uses a different but similar regular expression to the one above), ADI will store that pre-booked return time, and transform it into a string, and then. In the case that the booking us traveling inbound, it reaches this section by featuring a valid pre-booked return request in the special instructions. Only when it is an inbound booking at this stage does the method  set the booking information field using `}<InlineCodeSnip>{`YieldDVABookingInformation()`}</InlineCodeSnip>{` like earlier, but this time, taking values appropriate for the pre-booked return. The string is similar to the previous  booking information (Appointment time / Travel direction / Outbound order number), except that it also includes the pre-booked return time at the end so agents may more easily search for the pre-booked return using the inbound booking as a reference.`}</p>
+
+                        <p>{`It should be noted that the pre-booked return section does not change or create a new output object, rather, the methods assumes that it will need to perform these steps for both the inbound and outbound process, and modifies each booking type based on the process requirements.`}</p>
+
+                        <p>{`Finally, the various local fields are compiled into a single `}<InlineCodeSnip>{`DVAInfo`}</InlineCodeSnip>{` object, which is returned alongside the forced address array in a tuple.`}</p>
+
+                        <h2 id="desired-pickup" className="">{`DesiredPickUpTime(...)`}</h2>
+                        <p>{``}</p>
 
                         <h2 id="determine-prebook" className="">{`DeterminePreBookedPickUpTime(...)`}</h2>
                         <p>{``}</p>
@@ -246,13 +283,7 @@ const generateBookingSnip1 = `private static async Task<(DVAInfo?, Address[]?)> 
                         <p>{``}</p>
                         
 
-                        <h2 id="desired-pickup" className="">{`DesiredPickUpTime(...)`}</h2>
-                        <p>{``}</p>
-
-
-                        <h2 id="yield-booking-info" className="">{`YieldDVABookingInformation(...)`}</h2>
-                        <p>{``}</p>
-
+             
 
                         <h2 id="dvabooking" className="">{`DVABooking`}</h2>
                         <p>{``}</p>

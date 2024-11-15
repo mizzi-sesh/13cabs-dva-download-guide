@@ -2,6 +2,8 @@
 import LinkCard from "@/app/ui/linkcard";
 import PageContents, { CSFragment } from "@/app/ui/pagecontents";
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function Page() {
 
@@ -31,6 +33,7 @@ export default function Page() {
                         able to be implemented in production. However, the application has effectively replaced the previous workflow for DVA booking submissions, and so this 
                         documentation is primarily concerned with maintenance, whilst also specifying information that enables future development.`}
                     </p>
+                    <Image src={``} alt={`booking summary`}/>
                     <h2 id="features">Features</h2>
                     <div className="overflow-x-auto">
                         <table className="w-full table-auto">
